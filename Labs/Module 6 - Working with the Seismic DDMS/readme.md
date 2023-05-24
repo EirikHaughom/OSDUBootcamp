@@ -1,1 +1,0 @@
-# Module 6 - Working with the Seismic DDMS

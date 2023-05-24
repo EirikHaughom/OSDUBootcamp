@@ -3,9 +3,6 @@ In this module you will learn how to authenticate towards OSDU using Oauth 2.0 a
 
 This module will cover the following topics:
 - **1. Authentication**: How to authenticate towards OSDU using Oauth 2.0 using OSDU CLI and Postman.
-- **2. Entitlements Service**: User and Group management.
-- **3. Legal Service**: Legal tags and data categorization management.
-- **4. Schema Service**: Schema management.
 
 ## 1. Authentication
 OSDU uses Oauth 2.0 for authentication. In this section you will learn how to authenticate towards OSDU using Oauth 2.0 using OSDU CLI and Postman.
