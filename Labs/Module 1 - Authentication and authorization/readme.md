@@ -11,7 +11,7 @@ This module will cover the following topics:
 OSDU uses Oauth 2.0 for authentication. In this section you will learn how to authenticate towards OSDU using Oauth 2.0 using OSDU CLI and Postman.
 
 ### 1.1 OSDU CLI
-1. Download the [config file](./config?raw=1) (Right Click - Save As) and save it to `C:/Users/\<username\>/.osducli` (Windows) or `~/.osducli` (Linux/MacOS).
+1. Download the [config file](./config?raw=1) (Right Click - Save As) and save it to `C:/Users/\<username\>/.osducli` (Windows) or `/users/<username>/.osducli/` (Linux/MacOS).
 2. Open a terminal and run the following command to authenticate towards OSDU:
     ```bash
     osdu status
