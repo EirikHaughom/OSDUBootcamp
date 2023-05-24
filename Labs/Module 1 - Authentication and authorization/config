@@ -1,0 +1,20 @@
+[core]
+server = https://.energy.azure.com
+crs_catalog_url = /api/crs/catalog/v2/
+crs_converter_url = /api/crs/converter/v2/
+entitlements_url = /api/entitlements/v2/
+file_url = /api/file/v2/
+legal_url = /api/legal/v1/
+schema_url = /api/schema-service/v1/
+search_url = /api/search/v2/
+storage_url = /api/storage/v2/
+unit_url = /api/unit/v3/
+workflow_url = /api/workflow/v1/
+data_partition_id = 
+legal_tag = -legal-tag-load
+acl_viewer = data.default.viewers@.dataservices.energy
+acl_owner = data.default.owners@.dataservices.energy
+authentication_mode = msal_interactive
+client_id = 
+authority = https://login.microsoftonline.com/72f988bf-86f1-41af-91ab-2d7cd011db47
+scopes = /.default openid profile offline_access
