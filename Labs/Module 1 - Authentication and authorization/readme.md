@@ -11,7 +11,7 @@ This module will cover the following topics:
 OSDU uses Oauth 2.0 for authentication. In this section you will learn how to authenticate towards OSDU using Oauth 2.0 using OSDU CLI and Postman.
 
 ### 1.1 OSDU CLI
-1. Download the [config file](./config) and save it to C:/Users/\<username\>/.osducli
+1. Download the [config file](./config?raw=1) (Right Click - Save As) and save it to `C:/Users/\<username\>/.osducli` (Windows) or `~/.osducli` (Linux/MacOS).
 2. Open a terminal and run the following command to authenticate towards OSDU:
     ```bash
     osdu status
@@ -52,5 +52,7 @@ OSDU uses Oauth 2.0 for authentication. In this section you will learn how to au
 The Entitlements Service is used to manage users and groups in OSDU. In this section you will learn how to create a new user and group.
 
 ## 3. Legal Service
+The Legal Service is used to manage legal tags and data categorization in OSDU. In this section you will learn how to create a new legal tag.
 
 ## 4. Schema Service
+The Schema Service is used to manage schemas in OSDU. In this section you will learn how to create a new schema.
