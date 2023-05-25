@@ -16,5 +16,5 @@ acl_viewer = data.default.viewers@.dataservices.energy
 acl_owner = data.default.owners@.dataservices.energy
 authentication_mode = msal_interactive
 client_id = 
-authority = https://login.microsoftonline.com/72f988bf-86f1-41af-91ab-2d7cd011db47
+authority = https://login.microsoftonline.com/
 scopes = /.default openid profile offline_access
