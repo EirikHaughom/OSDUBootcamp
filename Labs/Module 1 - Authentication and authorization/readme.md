@@ -44,12 +44,3 @@ OSDU uses Oauth 2.0 for authentication. In this section you will learn how to au
 5. Perform the interactive authentication in your browser. Ensure that the token creation is successful.
 6. Run the following request to make sure the token is valid: `Entitlements > (GET) listGroups`.
 7. Compare the response with the output from the OSDU CLI (`osdu entitlements mygroups`).
-
-## 2. Entitlements Service
-The Entitlements Service is used to manage users and groups in OSDU. In this section you will learn how to create a new user and group.
-
-## 3. Legal Service
-The Legal Service is used to manage legal tags and data categorization in OSDU. In this section you will learn how to create a new legal tag.
-
-## 4. Schema Service
-The Schema Service is used to manage schemas in OSDU. In this section you will learn how to create a new schema.
