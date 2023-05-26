@@ -18,16 +18,18 @@ The Postman collection contains a set of requests that are used in the bootcamp.
 ## Modules
 The bootcamp is built up of a set of modules that can be picked based on the audience. 
 
-### Presentations
-| Module | Description | PowerPoint |
-| --- | --- | --- |
-| OSDU Introduction | Introduction about OSDU and the core promise of OSDU. Include end user perspective / value markers. | [Link]() |
-| ADME Introduction | Overview of Azure Data Manager for Energy (ADME) and the value it brings | [Link]() |
-| OSDU Concepts | Introduction to the building blocks of OSDU. Core services, DDMS, Ingestion, scemas, data structure +++, Master/reference Data | [Link]() |
-| ADME Deployments | Get ADME available for your project: DEV instance, Cost management, Working with logs using Azure | [Link]() |
-| Tools and utilities | OSDU CLI, Postman, Notebooks: Using OSDU Python SDK, Using native Python | [Link]() |
+### Presentations (Day 1, first half)
+| Module | Description | Time Estimate | PowerPoint |
+| --- | --- | --- | --- |
+| OSDU Introduction | Introduction about OSDU and the core promise of OSDU. Include end user perspective / value markers. | X min | [Link]() |
+| ADME Introduction | Overview of Azure Data Manager for Energy (ADME) and the value it brings | X min | [Link]() |
+| OSDU Concepts | Introduction to the building blocks of OSDU. Core services, DDMS, Ingestion, scemas, data structure +++, Master/reference Data | X min | [Link]() |
+| OSDU Incubator features | Overview of the incubator features (GeoSpatial Consumption Zone, External Data Services, Policy engine, ADME and Experimental Features) | X min | [Link]() |
+| ADME Deployments | Get ADME available for your project: DEV instance, Cost management, Working with logs using Azure | X min | [Link]() |
+| Tools and utilities | OSDU CLI, Postman, Notebooks: Using OSDU Python SDK, Using native Python, Power BI, Spotfire and 3rd party tools (ESA EarthNet, INT IVAAP, SLB Petrel, SLB SEDS, Halliburton Seismic Engine, AspenTech RMS) | X min | [Link]() |
 
-### Hand-on-Labs
+
+### Hand-on-Labs (Day 1, second half + Day 2)
 | Module | Description | PowerPoint | Lab Module |
 | --- | --- | --- | --- |
 | Lab Module 1: Authentication and authorization | Learn how to authenticate towards OSDU using Oauth 2.0 and how to use the OSDU API to retrieve information about your user. | [Link]() | [Link](/Labs/Module%201%20-%20Authentication%20and%20authorization/) | 
@@ -62,13 +64,6 @@ Get ADME available for your project:
     * Using native Python
 * Power BI from Microsoft
 * Spotfire from Tibco
-* Known third-party domain tools
-    * EarthNet from ESA
-    * IVAAP from INT
-    * Petrel from SLB
-    * SEDS from SLB
-    * Seismic Engine from Halliburton
-    * RMS from Aspentech
 
 ### Working with the OSDU Data Platform Core APIs
 Hands on training working with OSDU Core API 
@@ -77,18 +72,6 @@ Hands on training working with OSDU Core API
 * WKS 
 * Manifest ingestion 
 * Search 
-
-### Working with the Seismic DDMS
-Working with Seismic in OSDU using the Seismic DDMS and the oVDS format 
-
-### Working with the Wellbore DDMS
-Working with welldata using the Wellbore DDMS 
-
-### Working with the WellDelivery DDMS
-Working with Welldelivery data using the WellDelivery DDMS 
-
-### Working with the Reservoir DDMS
-Working with Interpretation data using the Reservoir DDMS 
 
 ### OSDU Incubator features
 * GeoSpatial Consumption Zone 
