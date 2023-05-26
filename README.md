@@ -41,21 +41,6 @@ The bootcamp is built up of a set of modules that can be picked based on the aud
 | Lab Module 7: Working with the WellDelivery DDMS | Learn how to use the OSDU API to read and write well delivery data to the OSDU platform using the WellDelivery DDMS. | [Link]() | [Link](/Labs/Module%207%20-%20Working%20with%20the%20WellDelivery%20DDMS/) |
 | Lab Module 8: Working with the Production DDMS | Learn how to use the OSDU API to read and write production data to the OSDU platform using the Production DDMS. | [Link]() | [Link](/Labs/Module%208%20-%20Working%20with%20the%20Production%20DDMS/) |
 
-### OSDU Introduction
-Introduction about OSDU and the core promise of OSDU. Include end user perspective / value markers. 
-
-### ADME Introduction
-ADME and what ADME brings on top of OSDU 
-
-### OSDU Concepts
-Introduction to the building blocks of OSDU. Core services, DDMS, Ingestion, scemas, data structure +++, Master/reference Data 
-
-### ADME Deployments
-Get ADME available for your project: 
-* DEV instance 
-* Cost management 
-* Working with logs using Azure 
-
 ### Tools and utilities
 * OSDU CLI 
 * Postman 
@@ -72,12 +57,6 @@ Hands on training working with OSDU Core API
 * WKS 
 * Manifest ingestion 
 * Search 
-
-### OSDU Incubator features
-* GeoSpatial Consumption Zone 
-* External Data Services 
-* Policy engine
-* ADME and Experimental Features 
 
 ### Governance - both data ops and technology
 Who, what and how to interact with the OSDU community (?)
