@@ -37,6 +37,8 @@ OSDU uses Oauth 2.0 for authentication. In this section you will learn how to au
     ```
 
 ### 1.2 Postman
+Ensure that you have installed the prerequisites listed in the [main readme](../../readme.md#preparations).
+
 1. Open Postman and go to `Environments` and select the `ADME` environment.
 2. Configure it using the details from the OSDU CLI (`osdu config list`).
 3. Go to `Collections` and select the `ADME (M14)` collection (root folder).
