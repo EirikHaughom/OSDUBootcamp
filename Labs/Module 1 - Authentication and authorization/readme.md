@@ -44,5 +44,5 @@ Ensure that you have installed the prerequisites listed in the [main readme](../
 3. Go to `Collections` and select the `ADME (M14)` collection (root folder).
 4. Select the `Authorization` phane and click `Get New Access Token`.
 5. Perform the interactive authentication in your browser. Ensure that the token creation is successful.
-6. Run the following request to make sure the token is valid: `Entitlements > (GET) listGroups`.
+6. Run the following request to make sure the token is valid: `Entitlements > (GET) listGroups` and click *SEND*.
 7. Compare the response with the output from the OSDU CLI (`osdu entitlements mygroups`).
