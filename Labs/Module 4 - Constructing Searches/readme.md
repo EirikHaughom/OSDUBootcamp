@@ -87,7 +87,18 @@ The above example searches for **contains** the word `D12-01`. To search for an 
 }
 ```
 
-To undestand the structure, expand the example record below and validate the data property (FacilityName) and it's value:
+### 4.1.8 Exact matches ONLY
+The above example searches for **exact match** of the word `D12-01`. To search for ONLY the **exact match** of the word `D12-01`, use the following query:
+
+```json
+{
+  "kind": "*:*:*:*",
+  "query": "data.FacilityName.keyword:\"D12-01\""
+}
+```
+Note the use of the ```.keyword```. This tells us to only return ```"D12-01"``` and NOT ```"D12-01 Y"```. 
+
+To understand the structure, expand the example record below and validate the data property (FacilityName) and it's value:
 <details>
   <summary>Example record</summary>
   
