@@ -42,12 +42,12 @@ Ensure that you have installed the prerequisites listed in the [main readme](../
 1. Open Postman and go to `Environments` and select the `ADME` environment.
 2. Configure it using the details from the OSDU CLI (`osdu config list`).
 3. Go to `Collections` and select the `ADME (M14)` collection (root folder).
-4. Select the `Authorization` phane and click `Get New Access Token`.
+4. Select the `Authorization` tab and click `Get New Access Token`.
 5. Perform the interactive authentication in your browser. Ensure that the token creation is successful.
 6. Run the following request to make sure the token is valid: `Entitlements > (GET) listGroups` and click *SEND*.
 7. Compare the response with the output from the OSDU CLI (`osdu entitlements mygroups`).
 
 ### 1.3 Inspect JWT token
-1. Copy the JWT token from the Postman `authorization` tab.
+1. Copy the JWT token from the Postman `Authorization` tab.
 2. Open [https://jwt.ms/](https://jwt.ms/) and paste the token into the `Encoded` field.
 3. Review the token and the claims, especially focus on object id (`oid`), tenant id (`tid`) and subject (`sub`).
