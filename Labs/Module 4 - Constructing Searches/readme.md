@@ -6,7 +6,7 @@ In this module you will learn how to use the OSDU API to search for data in the 
 - Learn how to construct basic searches to retrieve data from the OSDU platform.
 
 ## 4.1 Search API
-This module uses the following API from the Postman Collection: `Search > (POST) search`
+This module uses the following API from the Postman Collection: `Search > (POST) search`, or API endpoint `/api/search/v2/query`. 
 
 ### 4.1.1 Search by kind
 The below example shows how to search for all records of a specific kind. In this case, we are searching for all records of kind `osdu:wks:master-data--Wellbore:1.0.0`.
@@ -52,7 +52,7 @@ The below example shows how to search for a specific record by its ID. In this c
 ```
 
 ### 4.1.5 Limiting returned content
-While it is often useful to return all fields in a record, sometimes it is useful to limit the fields returned. The below example shows how to construct a query to search for all records of kind `osdu:wks:master-data--Wellbore:1.0.0` that has a `FacilityName` property that contains the word `D12-01` under the data section, and has a `DefaultVerticalMeasurementID` property that contains the word `RotaryTable` under the data section, and return only the `FacilityName` and `DefaultVerticalMeasurementID` properties.
+While it is often useful to return all fields in a record, sometimes it is useful to limit the fields returned. The below example shows how to construct a query to search any record of any kind, but only return the `id`, `kind` and `data.FacilityName` fields.
 
 ```json
 {
@@ -68,7 +68,7 @@ While it is often useful to return all fields in a record, sometimes it is usefu
 ```
 
 ### 4.1.6 Constructing a query
-The below example shows how to construct a query to search for all records of kind `osdu:wks:master-data--Wellbore:1.0.0` that has a `FacilityName` property that contains the word (or parts of word with certain symbols) `D12-01` under the data section.
+The below example shows how to construct a query to search for all records of any kind which has a `FacilityName` property that contains the word, or parts of word, `D12-01` under the data section.
 
 ```json
 {
@@ -173,11 +173,12 @@ To undestand the structure, expand the example record below and validate the dat
 Using the same structure, construct a search for the kind `osdu:wks:master-data--Wellbore:1.0.0` listing 50 records which has the property `DefaultVerticalMeasurementID` set to `RotaryTable`, and note the total number of records matching the search criteria.
 
 <details>
-  <summary>Resolution</summary>
+  <summary>Solution</summary>
 
 ```json
 {
   "kind": "osdu:wks:master-data--Wellbore:1.0.0",
+  "query": "data.DefaultVerticalMeasurementID:\"RotaryTable\"",
   "limit": "50"
 }
 ```
@@ -195,7 +196,7 @@ The below example shows how to construct a query to search for all records of ki
 ```
 
 ### 4.1.9 OR operator
-The below example shows how to construct a query to search for all records of kind `osdu:wks:master-data--Wellbore:1.0.0` that has a `FacilityName` property that contains the word `D12-01` under the data section, or has a `DefaultVerticalMeasurementID` property that contains the word `RotaryTable` under the data section.
+The below example shows how to construct a query to search for all records of kind `osdu:wks:master-data--Wellbore:1.0.0` that has a `FacilityName` property that contains the word `D12-01` or `D12-02`.
 
 ```json
 {
@@ -335,9 +336,9 @@ Example output:
 With the regular search API, you can only retrieve a maximum of 1000 records at a time. If you want to retrieve more records, you can use the cursor search API. The cursor search API is similar to the regular search API, but it returns a cursor that you can use to retrieve the next batch of records. The cursor search API is useful when you want to retrieve a large number of records.
 
 ### Request
-This module uses the following API from the Postman Collection: `Search > (POST) cursor search` with api endpoint `/api/search/v2/query/cursor`. The request body is the same as the regular search API.
+This module uses the following API from the Postman Collection: `Search > (POST) cursor search` with API endpoint `/api/search/v2/query/cursor`. The request body is the same as the regular search API.
 
-We will list out all records of kind `osdu:wks:master-data--Wellbore:1.0.0` that has a `FacilityName` property that contains the word `D12-01` under the data section, and has a `DefaultVerticalMeasurementID` property that contains the word `RotaryTable` under the data section, and return only the `FacilityName` and `DefaultVerticalMeasurementID` properties.
+We will list out all records of kind `osdu:wks:master-data--Wellbore:1.0.0` with a limit of 1000 records per request.
 
 ```json
 {
