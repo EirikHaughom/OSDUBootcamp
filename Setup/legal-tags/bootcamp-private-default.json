@@ -1,0 +1,14 @@
+{
+    "name": "bootcamp-private-default",
+    "description": "A default legaltag to be used for bootcamp data",
+    "properties": {
+        "countryOfOrigin":["NO"],
+        "contractId":"Unknown",
+        "expirationDate":"",
+        "dataType":"First Party Data", 
+        "originator":"bootcamp",
+        "securityClassification":"Private",
+        "exportClassification":"No License Required",
+        "personalData":"No Personal Data"
+    }
+}
