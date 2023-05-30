@@ -8,7 +8,7 @@ In this module you will learn how to use the OSDU API to search for data in the 
 ## 4.1 Search API
 This module uses the following API from the Postman Collection: `Search > (POST) search`
 
-### Search by kind
+### 4.1.1 Search by kind
 The below example shows how to search for all records of a specific kind. In this case, we are searching for all records of kind `osdu:wks:master-data--Wellbore:1.0.0`.
 
 ```json
@@ -17,7 +17,7 @@ The below example shows how to search for all records of a specific kind. In thi
 }
 ```
 
-### Limiting the number of results
+### 4.1.2 Limiting the number of results
 By default the search API limits results at 10 records unless otherwise specified, up to a maximum of 1000. The below example shows how to limit the number of results to 100.
 
 ```json
@@ -29,7 +29,7 @@ By default the search API limits results at 10 records unless otherwise specifie
 
 Note that the output will include a `"totalCount"` property displaying the total number of records matching the search criteria. If the number of records matching the search criteria exceeds a limit of 10000, the `"totalCount"` property will be set to the limit value.
 
-### Search by multiple kinds
+### 4.1.3 Search by multiple kinds
 The below example shows how to search for all records of multiple kinds. In this case, we are searching for all records of kind `osdu:wks:master-data--Wellbore:1.0.0` and `osdu:wks:master-data--Well:1.0.0`.
 
 ```json
@@ -41,7 +41,7 @@ The below example shows how to search for all records of multiple kinds. In this
 }
 ```
 
-### Search by specific record ID
+### 4.1.4 Search by specific record ID
 The below example shows how to search for a specific record by its ID. In this case, we are searching for the record with ID `contoso-opendes:master-data--Well:7018`.
 
 ```json
@@ -51,7 +51,7 @@ The below example shows how to search for a specific record by its ID. In this c
 }
 ```
 
-### Limiting returned content
+### 4.1.5 Limiting returned content
 While it is often useful to return all fields in a record, sometimes it is useful to limit the fields returned. The below example shows how to construct a query to search for all records of kind `osdu:wks:master-data--Wellbore:1.0.0` that has a `FacilityName` property that contains the word `D12-01` under the data section, and has a `DefaultVerticalMeasurementID` property that contains the word `RotaryTable` under the data section, and return only the `FacilityName` and `DefaultVerticalMeasurementID` properties.
 
 ```json
@@ -67,7 +67,7 @@ While it is often useful to return all fields in a record, sometimes it is usefu
 }
 ```
 
-### Constructing a query
+### 4.1.6 Constructing a query
 The below example shows how to construct a query to search for all records of kind `osdu:wks:master-data--Wellbore:1.0.0` that has a `FacilityName` property that contains the word (or parts of word with certain symbols) `D12-01` under the data section.
 
 ```json
@@ -77,7 +77,7 @@ The below example shows how to construct a query to search for all records of ki
 }
 ```
 
-### Exact matches
+### 4.1.7 Exact matches
 The above example searches for **contains** the word `D12-01`. To search for an **exact match** of the word `D12-01`, use the following query:
 
 ```json
@@ -184,7 +184,7 @@ Using the same structure, construct a search for the kind `osdu:wks:master-data-
   
 </details>
 
-### AND operator
+### 4.1.8 AND operator
 The below example shows how to construct a query to search for all records of kind `osdu:wks:master-data--Wellbore:1.0.0` that has a `FacilityName` property that contains the word `D12-01` under the data section, and has a `DefaultVerticalMeasurementID` property that contains the word `RotaryTable` under the data section.
 
 ```json
@@ -194,7 +194,7 @@ The below example shows how to construct a query to search for all records of ki
 }
 ```
 
-### OR operator
+### 4.1.9 OR operator
 The below example shows how to construct a query to search for all records of kind `osdu:wks:master-data--Wellbore:1.0.0` that has a `FacilityName` property that contains the word `D12-01` under the data section, or has a `DefaultVerticalMeasurementID` property that contains the word `RotaryTable` under the data section.
 
 ```json
@@ -207,7 +207,7 @@ The below example shows how to construct a query to search for all records of ki
 
 This should return 2 records, one for each facility name.
 
-### Aggregations
+### 4.1.10 Aggregations
 The below example shows how to construct a search to retrieve the top 10 most frequent values for the property `FacilityName` under the data section.
 
 ```json
