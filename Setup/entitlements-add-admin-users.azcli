@@ -40,7 +40,7 @@ while true ; do
     fi
 
     # Users registration
-    USERS=( jmor@equinor.com bvorland_microsoft.com#EXT#@StatoilSRM.onmicrosoft.com Eirik.haughom_microsoft.com#EXT#@StatoilSRM.onmicrosoft.com frodeo_microsoft.com#EXT#@StatoilSRM.onmicrosoft.com )
+    USERS=( jmor@equinor.com bvorland_microsoft.com#EXT#@StatoilSRM.onmicrosoft.com Eirik.haughom_microsoft.com#EXT#@StatoilSRM.onmicrosoft.com frodeo_microsoft.com#EXT#@StatoilSRM.onmicrosoft.com didharch_microsoft.com#EXT#@StatoilSRM.onmicrosoft.com )
     AddUsers users MEMBER ${USERS[@]}
 
     # users.datalake.ops
