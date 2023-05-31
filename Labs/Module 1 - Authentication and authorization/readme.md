@@ -47,7 +47,22 @@ Ensure that you have installed the prerequisites listed in the [main readme](../
 6. Run the following request to make sure the token is valid: `Entitlements > (GET) listGroups` and click *SEND*.
 7. Compare the response with the output from the OSDU CLI (`osdu entitlements mygroups`).
 
-### 1.3 Inspect JWT token
+### 1.3 Manual authentication as an App Registration (Service Principal)
+This authentication mechanism is mainly used to integrate external applications programmatically into OSDU. We will use an example App Registration (client id and client secret) to authenticate towards OSDU.
+
+1. In Postman, go to the `ADME (M14)` collection and open the folde `Authenticate > App Registration`.
+2. Inspect the URI and Body of the request to understand the format.
+| Parameter | Description |
+| --- | --- |
+| `client_id` | The client_id (also known as App Registration ID) of the external application |
+| `client_secret` | The client_secret of the external application |
+| `grant_type` | The grant_type of the authentication request. |
+| `scope` | The scope of the authentication request. This should always start with the OSDU instance's client_id followed by the required scopes, e.g. `00000000000-0000-0000-00000000/.default openid profile offline_access` |
+3. Click `Send` to execute the request.
+4. Verify that the response contains an access token.
+
+### 1.4 Inspect JWT token
 1. Copy the JWT token from the Postman `Authorization` tab.
 2. Open [https://jwt.ms/](https://jwt.ms/) and paste the token into the `Encoded` field.
 3. Review the token and the claims, especially focus on object id (`oid`), tenant id (`tid`) and subject (`sub`).
+
