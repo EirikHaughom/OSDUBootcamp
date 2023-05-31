@@ -10,3 +10,6 @@ In this module you will learn how to use the OSDU API to read and write data to 
 ## Workflow Service
 
 ## CSV Parser
+
+## Congratulations! You have now completed the lab!
+Continue with the next module: [Module 4 - Constructing Searches](../Module%204%20-%20Constructing%20Searches/readme.md)
