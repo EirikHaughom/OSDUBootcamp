@@ -1,0 +1,54 @@
+# Sample usage
+# entitlements-register-users.azcli /users/jmor/.osducli/test npequinor-test
+
+
+# Entitle customized groups.
+ENVIRONMENT=$1 #e.g. <full path>/environment-file Ex: /users/jmor/.osducli/dev
+DATA_PARTITION=$2 # e.g. npequinor-dev
+DOMAIN=dataservices.energy
+
+function AddUsers() {
+    # Required argument $1 = GROUP
+    # Required argument $2 = ROLE (MEMBER|OWNER)
+    # Required argument $3 = Array of USERS
+
+    # If user already exist then there will be a 409 error which can then be ignored.
+    # We use the osducli to call the entitlements-service. 
+    # More information can be found here: https://github.com/equinor/OSDU-cli (public repo)
+    local GROUP="$1"   # Save first argument in a variable
+    local ROLE="$2"   # Save second argument in a variable
+    shift            # Shift all arguments to the left (original $1 gets lost)
+    shift            # Shift all arguments to the left (original $2 gets lost)
+    local USERLIST=("$@") # Rebuild the array with rest of arguments
+    #USERLIST=("$@")
+    for USER in "${USERLIST[@]}"
+    do
+        OID=$(az ad user show --id $USER --query "[id]" -otsv) 
+        tput setaf 2; echo Adding $USER, OID: $OID to $GROUP@$DATA_PARTITION.$DOMAIN in environment $ENVIRONMENT ; tput sgr0
+        osdu entitlements members add -m $OID -g $GROUP@$DATA_PARTITION.$DOMAIN -r $ROLE -c $ENVIRONMENT
+    done
+
+}
+while true ; do
+    if [ -z $1 ]; then
+        tput setaf 1; echo 'ERROR: ENVIRONMENT not provided' ; tput sgr0
+        break;
+    fi
+    if [ -z $2 ]; then
+        tput setaf 1; echo 'ERROR: DATA_PARTITION not provided' ; tput sgr0
+        break;
+    fi
+
+    # Users registration
+    USERS=( KLBJ@equinor.com akuzn@equinor.com ERLTH@equinor.com BBOT@equinor.com MRK@equinor.com ODNO@equinor.com EIMOR@equinor.com HNFL@equinor.com thgre@equinor.com rotti@equinor.com suve@equinor.com joth@equinor.com OOGE@equinor.com DDUR@equinor.com svtve@equinor.com TELG@equinor.com esism@equinor.com HHETL@equinor.com rokop@equinor.com DMEB@equinor.com maap@equinor.com henrik.bibow_accenture.com#EXT#@StatoilSRM.onmicrosoft.com TRANN@equinor.com eidi@equinor.com gtox@equinor.com aruss@equinor.com brobok@equinor.com )
+    AddUsers users MEMBER ${USERS[@]}
+
+    # users.datalake.ops
+    AddUsers users.datalake.ops MEMBER ${USERS[@]}
+
+    # users.datalake.admin
+    # This added access that "should" not be necessary is to give access to the Seismic DDMS
+    AddUsers users.datalake.admins MEMBER ${USERS[@]}
+
+    break;
+done
