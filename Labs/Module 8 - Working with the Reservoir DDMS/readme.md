@@ -16,4 +16,7 @@ Use UUID's to reference objects in RDDMS and externally
 
 ## Discover and retrieve data loaded in the Reservoir DDMS using REST API
 
+- use postman
+- use jupyter notebook
+
 
