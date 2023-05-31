@@ -6,7 +6,7 @@ In this module you will learn how to use the OSDU API to search for data in the 
 - Learn how to construct basic searches to retrieve data from the OSDU platform.
 
 ## 4.1 Search API
-This module uses the following API from the Postman Collection: `Search > (POST) search`, or API endpoint `/api/search/v2/query`. 
+This module uses the following API from the Postman Collection: `Search > (POST) search`, or API endpoint `/api/search/v2/query`. All of the examples provided below should be pasted into the body of the request.
 
 ### 4.1.1 Search by kind
 The below example shows how to search for all records of a specific kind. In this case, we are searching for all records of kind `osdu:wks:master-data--Wellbore:1.0.0`.
@@ -78,7 +78,7 @@ The below example shows how to construct a query to search for all records of an
 ```
 
 ### 4.1.7 Exact matches
-The above example searches for **contains** the word `D12-01`. To search for an **exact match** of the word `D12-01`, use the following query:
+To search for a property containing the **exact match** of the word `D12-01`, use the following query:
 
 ```json
 {
@@ -87,8 +87,10 @@ The above example searches for **contains** the word `D12-01`. To search for an 
 }
 ```
 
+This will return all records of any kind which has a `FacilityName` property that contains the word, or parts of word, `D12-01` under the data section, such as `D12-01 Y`.
+
 ### 4.1.8 Exact matches ONLY
-The above example searches for **exact match** of the word `D12-01`. To search for ONLY the **exact match** of the word `D12-01`, use the following query:
+The above example searches for **exact match** of the word `D12-01`. To search for a property containing ONLY the **exact match** of the word `D12-01`, use the following query:
 
 ```json
 {
@@ -96,7 +98,7 @@ The above example searches for **exact match** of the word `D12-01`. To search f
   "query": "data.FacilityName.keyword:\"D12-01\""
 }
 ```
-Note the use of the ```.keyword```. This tells us to only return ```"D12-01"``` and NOT ```"D12-01 Y"```. 
+Note the use of the `.keyword`. This tells us to only return `"D12-01"` and NOT `"D12-01 Y"`. 
 
 To understand the structure, expand the example record below and validate the data property (FacilityName) and it's value:
 <details>
@@ -181,6 +183,7 @@ To understand the structure, expand the example record below and validate the da
 </details>
 <br>
 
+#### Exercise
 Using the same structure, construct a search for the kind `osdu:wks:master-data--Wellbore:1.0.0` listing 50 records which has the property `DefaultVerticalMeasurementID` set to `RotaryTable`, and note the total number of records matching the search criteria.
 
 <details>
@@ -196,7 +199,7 @@ Using the same structure, construct a search for the kind `osdu:wks:master-data-
   
 </details>
 
-### 4.1.8 AND operator
+### 4.1.9 AND operator
 The below example shows how to construct a query to search for all records of kind `osdu:wks:master-data--Wellbore:1.0.0` that has a `FacilityName` property that contains the word `D12-01` under the data section, and has a `DefaultVerticalMeasurementID` property that contains the word `RotaryTable` under the data section.
 
 ```json
@@ -206,7 +209,7 @@ The below example shows how to construct a query to search for all records of ki
 }
 ```
 
-### 4.1.9 OR operator
+### 4.1.10 OR operator
 The below example shows how to construct a query to search for all records of kind `osdu:wks:master-data--Wellbore:1.0.0` that has a `FacilityName` property that contains the word `D12-01` or `D12-02`.
 
 ```json
@@ -219,7 +222,7 @@ The below example shows how to construct a query to search for all records of ki
 
 This should return 2 records, one for each facility name.
 
-### 4.1.10 Aggregations
+### 4.1.11 Aggregations
 The below example shows how to construct a search to retrieve the top 10 most frequent values for the property `FacilityName` under the data section.
 
 ```json
