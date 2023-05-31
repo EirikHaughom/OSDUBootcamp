@@ -60,9 +60,29 @@ This authentication mechanism is mainly used to integrate external applications 
 | `scope` | The scope of the authentication request. This should always start with the OSDU instance's client_id followed by the required scopes, e.g. `00000000000-0000-0000-00000000/.default openid profile offline_access` |
 3. Click `Send` to execute the request.
 4. Verify that the response contains an access token.
+5. Execute a test-call to the entitlements service to verify that the token is valid.
 
-### 1.4 Inspect JWT token
-1. Copy the JWT token from the Postman `Authorization` tab.
+Powershell example (Windows):<br> Replace `<instance>`, `<data-partition-id>` and `<access-token>` with your own values (not including <>). 
+```powershell
+$headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"
+$headers.Add("data-partition-id", "<data-partition-id>") ## Replace <data-partition-id> with your data partition id
+$headers.Add("Accept", "*/*")
+$headers.Add("Authorization", "Bearer <access_token>") ## Replace <access_token> with the access token from the response
+
+$response = Invoke-RestMethod 'https://<instance>.energy.azure.com/api/entitlements/v2/groups' -Method 'GET' -Headers $headers ## Replace <instance> with your OSDU instance name
+$response
+```
+
+Curl example (Linux):<br> Replace `<instance>`, `<data-partition-id>` and `<access-token>` with your own values (not including <>). 
+```bash
+curl --location --request GET 'https://<instance>.energy.azure.com/api/entitlements/v2/groups' \
+--header 'data-partition-id: <data-partition-id>' \
+--header 'Accept: */*' \
+--header 'Authorization: Bearer <access-token>'
+```
+
+### 1.4 Inspect JWT/access token
+1. Copy the JWT/access token from the Postman `Authorization` tab.
 2. Open [https://jwt.ms/](https://jwt.ms/) and paste the token into the `Encoded` field.
 3. Review the token and the claims, especially focus on object id (`oid`), tenant id (`tid`) and subject (`sub`).
-
+4. Inspect your personal access token from the Postman `Authorization` tab on the `ADME (M14)` collection. Notice that the `oid` is different. The `oid` is the object ID of the App Registration (Service Principal) or your personal user, depending on which token you are inspecting.
