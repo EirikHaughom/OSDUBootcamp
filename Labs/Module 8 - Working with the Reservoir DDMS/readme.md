@@ -14,4 +14,6 @@ Use UUID's to reference objects in RDDMS and externally
 
 ## Use openETP client to ingest a RESQML epc file container with various Volve model data
 
-## Discover and retrieve data loaded in the Rservoir DDMS using REST API
+## Discover and retrieve data loaded in the Reservoir DDMS using REST API
+
+
