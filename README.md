@@ -13,6 +13,7 @@ The OSDU CLI is a command line tool that allows you to interact with the OSDU pl
 Postman is a tool that allows you to interact with REST APIs. It is used in the bootcamp to interact with the OSDU APIs. Please follow the instructions in the [Postman documentation](https://learning.postman.com/docs/getting-started/installation-and-updates/) to install Postman.
 
 ### 3. Import Postman OSDU Bootcamp Collection
+
 ***WORK IN PROGRESS***
 
 The Postman collection contains a set of requests that are used in the bootcamp. Please follow the instructions in the [OSDU Bootcamp Postman Collection]() to import the collection and environment.
@@ -41,7 +42,7 @@ The bootcamp is built up of a set of modules that can be chosen based on the aud
 | Lab Module 5: Working with the Seismic DDMS | Learn how to use the OSDU API to read and write seismic data to the OSDU platform using the Seismic DDMS. | [Link](/Labs/Module%205%20-%20Working%20with%20the%20Seismic%20DDMS/) |
 | Lab Module 6: Working with the Wellbore DDMS | Learn how to use the OSDU API to read and write wellbore data to the OSDU platform using the Wellbore DDMS. | [Link](/Labs/Module%206%20-%20Working%20with%20the%20Wellbore%20DDMS/) |
 | Lab Module 7: Working with the WellDelivery DDMS | Learn how to use the OSDU API to read and write well delivery data to the OSDU platform using the WellDelivery DDMS. | [Link](/Labs/Module%207%20-%20Working%20with%20the%20WellDelivery%20DDMS/) |
-| Lab Module 8: Working with the Production DDMS | Learn how to use the OSDU API to read and write production data to the OSDU platform using the Production DDMS. | [Link](/Labs/Module%208%20-%20Working%20with%20the%20Production%20DDMS/) |
+| Lab Module 8: Working with the Reservoir DDMS | Learn how to use the OSDU API to read and write reservoir data to the OSDU platform using the Reservoir DDMS. | [Link](/Labs/Module%208%20-%20Working%20with%20the%20Reservoir%20DDMS/) |
 
 ### Tools and utilities
 * OSDU CLI 
