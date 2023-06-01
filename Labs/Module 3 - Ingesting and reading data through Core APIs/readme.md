@@ -18,7 +18,6 @@ Before beginning this tutorial, the following prerequisites must be completed:
 #### Objectives
 - Ingest sample file into the Azure Data Manager for Energy Preview instance using Postman
 - Retrieve/Download the ingested file using Postman
-- Retrieve/Download the ingested file using OSDU CLI
 
 This section uses the following API from the Postman Collection: `Bootcamp > Manual Ingestion`. All of the sample API calls are numbered and these need to be executed sequentially.
 
@@ -40,7 +39,7 @@ Navigate to the Postman Collection: `Bootcamp > Manual Ingestion > 03 - Get a Si
 
 
 #### 3.1.4 Upload a File
-- Download the sample ![Sample file](./files/Guide%20to%20Data%20Governance.pdf?raw=1) to your local machine (you can choose any other filetype - CSV, LAS, JSON, etc.). 
+- Download the ![Sample file](./files/Guide%20to%20Data%20Governance.pdf?raw=1) to your local machine (you can choose any other filetype - CSV, LAS, JSON, etc.). 
 - Navigate to the Postman Collection: `Bootcamp > Manual Ingestion > 04 - Upload a file` and click on **Send** button on the top right corner.
 - Select this file in Postman by clicking the Select File option as shown in the Screenshot below
 ![screenshot of file selection](./img/fileupload.png)
@@ -67,15 +66,73 @@ Navigate to the Postman Collection: `Bootcamp > Manual Ingestion > 08 - download
 
 
 
-## Workflow Service: Manifest-based ingestion
+## 3.2 Workflow Service: Manifest-based ingestion
 #### Objectives
 - Ingest sample manifests into the Azure Data Manager for Energy Preview instance using Postman
 - Search for storage metadata records created during the manifest ingestion using Postman
 
 This section uses the following API from the Postman Collection: `Bootcamp > Manifest Ingestion`. All of the sample API calls are numbered and these need to be executed sequentially.
-![sample file](./files/wellbore.csv)
 
-## CSV Parser: Parsing CSV files through Workflow Service
+
+#### 3.2.1 Create a Legal Tag
+Create a legal tag that will be added to the file metadata compliance purpose.
+Navigate to the Postman Collection: `Bootcamp > Manifest Ingestion > 01 - Create a Legal Tag` and click on **Send** button on the top right corner.
+
+
+#### 3.2.2 Get a Signed URL for uploading a File
+Get the signed URL path(in the staging area) to which the file will be uploaded
+Navigate to the Postman Collection: `Bootcamp > Manifest Ingestion > 02 - Get a Signed URL for uploading a file` and click on **Send** button on the top right corner.
+
+
+#### 3.2.3 Upload a File
+- Download the raw ![sample wellbore csv file](./files/wellbore.csv) to your local machine. 
+- Navigate to the Postman Collection: `Bootcamp > Manifest Ingestion > 03 - Upload a file` and click on **Send** button on the top right corner.
+- Select this file in Postman by clicking the Select File option.
+
+
+#### 3.2.4 Upload File Metadata
+Upload the file metadata information such as file location & other relevant fields.
+Navigate to the Postman Collection: `Bootcamp > Manifest Ingestion > 04 - Upload File Metadata` and click on **Send** button on the top right corner.
+
+
+#### 3.2.5 Ingest Master, Reference & Work Product Component data
+Ingest the Master, Reference and Work Product Component manifest metadata.
+Navigate to the Postman Collection: `Bootcamp > Manifest Ingestion > 05 - Ingest Master, Reference and Work Product Component data` and click on **Send** button on the top right corner.
+
+
+#### 3.2.6 Get Manifest Ingestion Workflow Status
+The workflow will start and will be in the running state. Keep querying until it changes state to finished (typically 20-30 seconds).
+Navigate to the Postman Collection: `Bootcamp > Manifest Ingestion > 06 - Get Manifest Ingestion Workflow Status` and click on **Send** button on the top right corner.
+
+
+#### 3.2.7 Search Work Products
+Call Search service to retrieve the Work Product metadata records.
+Navigate to the Postman Collection: `Bootcamp > Manifest Ingestion > 07 - Search Work Products` and click on **Send** button on the top right corner.
+
+
+#### 3.2.8 Search Work Product Components
+Call Search service to retrieve the Work Product Component metadata records.
+Navigate to the Postman Collection: `Bootcamp > Manifest Ingestion > 08 - Search Work Product Components` and click on **Send** button on the top right corner.
+
+
+#### 3.2.9 Search for Dataset
+Call Search service to retrieve the Dataset metadata records.
+Navigate to the Postman Collection: `Bootcamp > Manifest Ingestion > 09 - Search for Dataset` and click on **Send** button on the top right corner.
+
+
+#### 3.2.10 Search for Master data
+Call Search service to retrieve the Master metadata records.
+Navigate to the Postman Collection: `Bootcamp > Manifest Ingestion > 10 - Search for Master data` and click on **Send** button on the top right corner.
+
+
+#### 3.2.11 Search for Reference Data
+Call Search service to retrieve the Reference metadata records.
+Navigate to the Postman Collection: `Bootcamp > Manifest Ingestion > 11 - Search for Reference Data` and click on **Send** button on the top right corner.
+
+
+
+
+## 3.3 CSV Parser: Parsing CSV files through Workflow Service
 #### Objectives
 - Ingest a sample wellbore data CSV file into the Azure Data Manager for Energy Preview instance using Postman
 - Search for storage metadata records created during the CSV Ingestion using Postman
