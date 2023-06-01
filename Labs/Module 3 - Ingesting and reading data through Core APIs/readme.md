@@ -106,27 +106,27 @@ The workflow will start and will be in the running state. Keep querying until it
 Navigate to the Postman Collection: `Bootcamp > Manifest Ingestion > 06 - Get Manifest Ingestion Workflow Status` and click on **Send** button on the top right corner.
 
 
-#### 3.2.7 Search Work Products
+#### 3.2.7 Search Work Products(Optional)
 Call Search service to retrieve the Work Product metadata records.
 Navigate to the Postman Collection: `Bootcamp > Manifest Ingestion > 07 - Search Work Products` and click on **Send** button on the top right corner.
 
 
-#### 3.2.8 Search Work Product Components
+#### 3.2.8 Search Work Product Components(Optional)
 Call Search service to retrieve the Work Product Component metadata records.
 Navigate to the Postman Collection: `Bootcamp > Manifest Ingestion > 08 - Search Work Product Components` and click on **Send** button on the top right corner.
 
 
-#### 3.2.9 Search for Dataset
+#### 3.2.9 Search for Dataset(Optional)
 Call Search service to retrieve the Dataset metadata records.
 Navigate to the Postman Collection: `Bootcamp > Manifest Ingestion > 09 - Search for Dataset` and click on **Send** button on the top right corner.
 
 
-#### 3.2.10 Search for Master data
+#### 3.2.10 Search for Master data(Optional)
 Call Search service to retrieve the Master metadata records.
 Navigate to the Postman Collection: `Bootcamp > Manifest Ingestion > 10 - Search for Master data` and click on **Send** button on the top right corner.
 
 
-#### 3.2.11 Search for Reference Data
+#### 3.2.11 Search for Reference Data(Optional)
 Call Search service to retrieve the Reference metadata records.
 Navigate to the Postman Collection: `Bootcamp > Manifest Ingestion > 11 - Search for Reference Data` and click on **Send** button on the top right corner.
 
