@@ -1,0 +1,753 @@
+{
+	"info": {
+		"_postman_id": "55ce7bcf-8781-4d00-b2e0-bd8ba7ebdf26",
+		"name": "Reservoir DDMS Boot Camp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12441416"
+	},
+	"item": [
+		{
+			"name": "0. Refresh Tokens",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// this snippet extracts the new access and id tokens",
+							"// and puts them to environment variables",
+							"var data = JSON.parse(responseBody)",
+							"pm.environment.set(\"access_token\", data.access_token);",
+							"pm.environment.set(\"id_token\", data.id_token);",
+							"// Uncomment if server returns a new refresh_token,",
+							"// otherwise comment out to prevent overwriting it with null",
+							"// pm.environment.set(\"refresh_token\", data.refresh_token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "{{grant_type}}",
+							"type": "text"
+						},
+						{
+							"key": "refresh_token",
+							"value": "{{refresh_token}}",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "{{CLIENT_ID}}",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "{{CLIENT_SECRET}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{Token_Fetch_URL}}",
+					"host": [
+						"{{Token_Fetch_URL}}"
+					]
+				},
+				"description": "Change the refresh_token parameter to a valid one before requesting a new access_token. Discard the old refresh_token after using it."
+			},
+			"response": []
+		},
+		{
+			"name": "1. Get Data Spaces List",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"response must be valid\", function () {\r",
+							"     pm.response.to.be.ok;\r",
+							"     pm.response.to.be.withBody;\r",
+							"     pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"status code is 200\", function () {\r",
+							"     pm.expect(pm.response.code).to.eql(200);\r",
+							"});\r",
+							"\r",
+							"pm.test('Number of data spaces: ' + pm.response.json().length, function () {\r",
+							"    pm.expect(Object.keys(pm.response.json()).length).to.be.greaterThan(0);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Demo dataspace is created\", function () {\r",
+							"    const response = pm.response.json();\r",
+							"    const dataspace = response.find(item => item.path === \"demo/Volve\");\r",
+							"    pm.expect(dataspace.path).to.eql(\"demo/Volve\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "data-partition-id",
+						"value": "{{data-partition-id}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{access_token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{RESERVOIR_DDMS_HOST}}/dataspaces",
+					"host": [
+						"{{RESERVOIR_DDMS_HOST}}"
+					],
+					"path": [
+						"dataspaces"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2. Get Resources List",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"response must be valid\", function () {\r",
+							"     pm.response.to.be.ok;\r",
+							"     pm.response.to.be.withBody;\r",
+							"     pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"status code is 200\", function () {\r",
+							"     pm.expect(pm.response.code).to.eql(200);\r",
+							"});\r",
+							"\r",
+							"pm.test('Number of resources names: ' + pm.response.json().length, function () {\r",
+							"    pm.expect(Object.keys(pm.response.json()).length).to.be.greaterThan(0);\r",
+							"    //var name = pm.response.json()[3].name;\r",
+							"    //pm.environment.set(\"DATA_OBJECT_TYPE\", name)\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Resources are imported\", function () {\r",
+							"    const response = pm.response.json();\r",
+							"    const resource = response.find(item => item.name === \"resqml20.obj_TriangulatedSetRepresentation\");\r",
+							"    pm.expect(resource.count).to.greaterThan(0)\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{access_token}}",
+						"type": "text"
+					},
+					{
+						"key": "data-partition-id",
+						"value": "{{data-partition-id}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://{{RESERVOIR_DDMS_HOST}}/dataspaces/{{DATASPACE_ID}}/resources",
+					"protocol": "https",
+					"host": [
+						"{{RESERVOIR_DDMS_HOST}}"
+					],
+					"path": [
+						"dataspaces",
+						"{{DATASPACE_ID}}",
+						"resources"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3. Get All Resources",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"response must be valid\", function () {\r",
+							"     pm.response.to.be.ok;\r",
+							"     pm.response.to.be.withBody;\r",
+							"     pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"status code is 200\", function () {\r",
+							"     pm.expect(pm.response.code).to.eql(200);\r",
+							"});\r",
+							"\r",
+							"pm.test('Number of resources: ' + pm.response.json().length, function () {\r",
+							"    pm.expect(Object.keys(pm.response.json()).length).to.be.greaterThan(0);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{access_token}}",
+						"type": "text"
+					},
+					{
+						"key": "data-partition-id",
+						"value": "{{data-partition-id}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://{{RESERVOIR_DDMS_HOST}}/dataspaces/{{DATASPACE_ID}}/resources/all",
+					"protocol": "https",
+					"host": [
+						"{{RESERVOIR_DDMS_HOST}}"
+					],
+					"path": [
+						"dataspaces",
+						"{{DATASPACE_ID}}",
+						"resources",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4. Get Data Object Type",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"response must be valid\", function () {\r",
+							"     pm.response.to.be.ok;\r",
+							"     pm.response.to.be.withBody;\r",
+							"     pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"status code is 200\", function () {\r",
+							"     pm.expect(pm.response.code).to.eql(200);\r",
+							"});\r",
+							"\r",
+							"pm.test('Number of data object types: ' + pm.response.json().length, function () {\r",
+							"    pm.expect(Object.keys(pm.response.json()).length).to.be.greaterThan(0);\r",
+							"    var uri = pm.response.json()[0].uri;\r",
+							"    var path = uri.split('(')[2].slice(0,-1);\r",
+							"    pm.collectionVariables.set(\"DATA_OBJECT_TYPE_GUID\", path)\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{access_token}}",
+						"type": "text"
+					},
+					{
+						"key": "data-partition-id",
+						"value": "{{data-partition-id}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://{{RESERVOIR_DDMS_HOST}}/dataspaces/{{DATASPACE_ID}}/resources/{{DATA_OBJECT_TYPE}}",
+					"protocol": "https",
+					"host": [
+						"{{RESERVOIR_DDMS_HOST}}"
+					],
+					"path": [
+						"dataspaces",
+						"{{DATASPACE_ID}}",
+						"resources",
+						"{{DATA_OBJECT_TYPE}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5. Get Data Object Content",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"response must be valid\", function () {\r",
+							"     pm.response.to.be.ok;\r",
+							"     pm.response.to.be.withBody;\r",
+							"     pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"status code is 200\", function () {\r",
+							"     pm.expect(pm.response.code).to.eql(200);\r",
+							"});\r",
+							"\r",
+							"pm.test('Data object content is available', function () {\r",
+							"    pm.expect(Object.keys(pm.response.json()).length).to.eql(1);\r",
+							"    /*var path = pm.response.json()[0].TrianglePatch[0].Triangles.Values.PathInHdfFile;\r",
+							"    console.log(path);\r",
+							"    var pathEscaped = path.replaceAll('/','%2F');\r",
+							"    pm.environment.set(\"RDDMS_PATH_IN_RESOURCE\", pathEscaped)*/\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{access_token}}",
+						"type": "text"
+					},
+					{
+						"key": "data-partition-id",
+						"value": "{{data-partition-id}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://{{RESERVOIR_DDMS_HOST}}/dataspaces/{{DATASPACE_ID}}/resources/{{DATA_OBJECT_TYPE}}/{{DATA_OBJECT_TYPE_GUID}}",
+					"protocol": "https",
+					"host": [
+						"{{RESERVOIR_DDMS_HOST}}"
+					],
+					"path": [
+						"dataspaces",
+						"{{DATASPACE_ID}}",
+						"resources",
+						"{{DATA_OBJECT_TYPE}}",
+						"{{DATA_OBJECT_TYPE_GUID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6. Get Description of All Arrays",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"response must be valid\", function () {\r",
+							"     pm.response.to.be.ok;\r",
+							"     pm.response.to.be.withBody;\r",
+							"     pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"status code is 200\", function () {\r",
+							"     pm.expect(pm.response.code).to.eql(200);\r",
+							"});\r",
+							"\r",
+							"pm.test('Data object content is available', function () {\r",
+							"    pm.expect(Object.keys(pm.response.json()).length).to.eql(1);\r",
+							"    var path = pm.response.json()[0].uid.pathInResource;\r",
+							"    console.log(path);\r",
+							"    var pathEscaped = path.toString().replace(/\\//g,'%2F');\r",
+							"    pm.collectionVariables.set(\"PATH_IN_RESOURCE\", pathEscaped);\r",
+							"});\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{access_token}}",
+						"type": "text"
+					},
+					{
+						"key": "data-partition-id",
+						"value": "{{data-partition-id}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://{{RESERVOIR_DDMS_HOST}}/dataspaces/{{DATASPACE_ID}}/resources/{{DATA_OBJECT_TYPE}}/{{DATA_OBJECT_TYPE_GUID}}/arrays",
+					"protocol": "https",
+					"host": [
+						"{{RESERVOIR_DDMS_HOST}}"
+					],
+					"path": [
+						"dataspaces",
+						"{{DATASPACE_ID}}",
+						"resources",
+						"{{DATA_OBJECT_TYPE}}",
+						"{{DATA_OBJECT_TYPE_GUID}}",
+						"arrays"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7. Get Array Content",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"response must be valid\", function () {\r",
+							"     pm.response.to.be.ok;\r",
+							"     pm.response.to.be.withBody;\r",
+							"     pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"status code is 200\", function () {\r",
+							"     pm.expect(pm.response.code).to.eql(200);\r",
+							"});\r",
+							"\r",
+							"pm.test('Array content is available', function () {\r",
+							"    pm.expect(pm.response.json()).is.not.empty;\r",
+							"    pm.expect(Object.keys(pm.response.json()).length).to.be.greaterThan(0);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Data value is presented\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.data.data).to.exist;\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{access_token}}",
+						"type": "text"
+					},
+					{
+						"key": "data-partition-id",
+						"value": "{{data-partition-id}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://{{RESERVOIR_DDMS_HOST}}/dataspaces/{{DATASPACE_ID}}/resources/{{DATA_OBJECT_TYPE}}/{{DATA_OBJECT_TYPE_GUID}}/arrays/{{PATH_IN_RESOURCE}}",
+					"protocol": "https",
+					"host": [
+						"{{RESERVOIR_DDMS_HOST}}"
+					],
+					"path": [
+						"dataspaces",
+						"{{DATASPACE_ID}}",
+						"resources",
+						"{{DATA_OBJECT_TYPE}}",
+						"{{DATA_OBJECT_TYPE_GUID}}",
+						"arrays",
+						"{{PATH_IN_RESOURCE}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "8. Get Array Metadata",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"response must be valid\", function () {\r",
+							"     pm.response.to.be.ok;\r",
+							"     pm.response.to.be.withBody;\r",
+							"     pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"status code is 200\", function () {\r",
+							"     pm.expect(pm.response.code).to.eql(200);\r",
+							"});\r",
+							"\r",
+							"pm.test('Array metadata is available', function () {\r",
+							"    pm.expect(pm.response.json()).is.not.empty;\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{access_token}}",
+						"type": "text"
+					},
+					{
+						"key": "data-partition-id",
+						"value": "{{data-partition-id}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://{{RESERVOIR_DDMS_HOST}}/dataspaces/{{DATASPACE_ID}}/resources/{{DATA_OBJECT_TYPE}}/{{DATA_OBJECT_TYPE_GUID}}/arrays/{{PATH_IN_RESOURCE}}/metadata",
+					"protocol": "https",
+					"host": [
+						"{{RESERVOIR_DDMS_HOST}}"
+					],
+					"path": [
+						"dataspaces",
+						"{{DATASPACE_ID}}",
+						"resources",
+						"{{DATA_OBJECT_TYPE}}",
+						"{{DATA_OBJECT_TYPE_GUID}}",
+						"arrays",
+						"{{PATH_IN_RESOURCE}}",
+						"metadata"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "9. Get Data Object Content Sources",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"response must be valid\", function () {\r",
+							"     pm.response.to.be.ok;\r",
+							"     pm.response.to.be.withBody;\r",
+							"     pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"status code is 200\", function () {\r",
+							"     pm.expect(pm.response.code).to.eql(200);\r",
+							"});\r",
+							"\r",
+							"pm.test('Number of sources: ' + pm.response.json().length, function () {\r",
+							"    pm.expect(Object.keys(pm.response.json()).length).to.be.greaterThan(0);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{access_token}}",
+						"type": "text"
+					},
+					{
+						"key": "data-partition-id",
+						"value": "{{data-partition-id}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://{{RESERVOIR_DDMS_HOST}}/dataspaces/{{DATASPACE_ID}}/resources/{{DATA_OBJECT_TYPE}}/{{DATA_OBJECT_TYPE_GUID}}/sources",
+					"protocol": "https",
+					"host": [
+						"{{RESERVOIR_DDMS_HOST}}"
+					],
+					"path": [
+						"dataspaces",
+						"{{DATASPACE_ID}}",
+						"resources",
+						"{{DATA_OBJECT_TYPE}}",
+						"{{DATA_OBJECT_TYPE_GUID}}",
+						"sources"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "10. Get Data Object Content Targets",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"response must be valid\", function () {\r",
+							"     pm.response.to.be.ok;\r",
+							"     pm.response.to.be.withBody;\r",
+							"     pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"status code is 200\", function () {\r",
+							"     pm.expect(pm.response.code).to.eql(200);\r",
+							"});\r",
+							"\r",
+							"pm.test('Number of targets: ' + pm.response.json().length, function () {\r",
+							"    pm.expect(Object.keys(pm.response.json()).length).to.be.greaterThan(0);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{access_token}}",
+						"type": "text"
+					},
+					{
+						"key": "data-partition-id",
+						"value": "{{data-partition-id}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://{{RESERVOIR_DDMS_HOST}}/dataspaces/{{DATASPACE_ID}}/resources/{{DATA_OBJECT_TYPE}}/{{DATA_OBJECT_TYPE_GUID}}/targets",
+					"protocol": "https",
+					"host": [
+						"{{RESERVOIR_DDMS_HOST}}"
+					],
+					"path": [
+						"dataspaces",
+						"{{DATASPACE_ID}}",
+						"resources",
+						"{{DATA_OBJECT_TYPE}}",
+						"{{DATA_OBJECT_TYPE_GUID}}",
+						"targets"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImZvbyIsInBhc3N3b3JkIjoiYmFyIiwiaWF0IjoxNjg1NjEwOTU3LCJleHAiOjE2ODU3MTA5NTcsImlzcyI6Imh0dHA6Ly9vc2R1Lm9yZyIsInN1YiI6ImZvbyJ9.vdTVQ-_RYbHakz6xaZL9dbp6M0HmR1LNbvs-PTXdtU8",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "DATASPACE_ID",
+			"value": "demo%2Fbootcamp",
+			"type": "string"
+		},
+		{
+			"key": "DATA_OBJECT_TYPE",
+			"value": "resqml20.obj_Grid2dRepresentation",
+			"type": "string"
+		},
+		{
+			"key": "DATA_OBJECT_TYPE_GUID",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "PATH_IN_RESOURCE",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "RESERVOIR_DDMS_HOST",
+			"value": "http://10.0.1.4:8003/Reservoir/v2",
+			"type": "string"
+		},
+		{
+			"key": "Token_Fetch_URL",
+			"value": "http://10.0.1.4:8003/Reservoir/v2/auth/token",
+			"type": "string"
+		}
+	]
+}
