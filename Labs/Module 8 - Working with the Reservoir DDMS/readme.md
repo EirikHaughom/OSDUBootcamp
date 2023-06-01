@@ -10,8 +10,6 @@ Load the [postman collection](RDDMS_postman_collection.json).
 1. 'Refresh Token' to fetch az bearer token
 2. List the dataspaces. Currently there is one. 
 
-use jupyter notebook
-
 Explore hierarchical object relationships for a seismic interpretation surface grid:
 1. Feature
 2. Interpretation
