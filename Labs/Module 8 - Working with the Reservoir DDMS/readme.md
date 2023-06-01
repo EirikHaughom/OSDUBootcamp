@@ -3,13 +3,14 @@
 In this lab you will explore fundamental capabilities and characteristics of the Reservoir DDMS. 
 
 ## Reservoir DDMS REST API - exploring the API and consume data 
+# Discover and retrieve data loaded in the Reservoir DDMS using REST API: postman 
 
-Load the [postman collection](https://github.com/EirikHaughom/OSDUBootcamp/edit/main/Labs/Module%208%20-%20Working%20with%20the%20Reservoir%20DDMS/readme.md). 
+Load the [postman collection](RDDMS_postman_collection.json). 
 
 1. 'Refresh Token' to fetch az bearer token
 2. List the dataspaces. Currently there is one. 
 
-
+use jupyter notebook
 
 Explore hierarchical object relationships for a seismic interpretation surface grid:
 1. Feature
@@ -19,11 +20,12 @@ Explore hierarchical object relationships for a seismic interpretation surface g
 
 Use UUID's to reference objects in RDDMS and externally
 
+# Discover and retrieve data loaded in the Reservoir DDMS using REST API: jupyter notebook
+
+Launch the [jupyter notebook](RDDMS_2dgrid.ipynb). 
+
 ## Use openETP client to ingest a RESQML epc file container with various Volve model data
 
-## Discover and retrieve data loaded in the Reservoir DDMS using REST API
 
-- use postman
-- use jupyter notebook
 
 
