@@ -5,8 +5,7 @@ In this lab you will explore fundamental capabilities and characteristics of the
 ## Reservoir DDMS REST API - exploring the API and consume data 
 ### Discover and retrieve data loaded in the Reservoir DDMS using REST API: postman 
 
-Load the [postman collection](RDDMS_postman_collection.json). 
-
+Load the [postman collection](RDDMS_postman_collection.json). Set the REST server address.
 ![Set the server address](rddms-postman.png)
 
 1. 'Refresh Token' to fetch az bearer token
