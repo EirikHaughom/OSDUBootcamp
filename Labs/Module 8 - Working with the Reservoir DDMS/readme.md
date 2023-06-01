@@ -6,10 +6,9 @@ In this lab you will explore fundamental capabilities and characteristics of the
 
 Load the [postman collection](https://github.com/EirikHaughom/OSDUBootcamp/edit/main/Labs/Module%208%20-%20Working%20with%20the%20Reservoir%20DDMS/readme.md). 
 
+1. 'Refresh Token' to fetch a az bearer token, and set it as auth token for the collection ![get a token and set it](rddms-token.png)
+2. List the dataspaces. Currently there is one. 
 
-
-1. 'Refresh Token' to fetch a az bearer token, and set it as auth token for the collection   
-![get a token and set it](rddms-token.png)
 
 
 Explore hierarchical object relationships for a seismic interpretation surface grid:
