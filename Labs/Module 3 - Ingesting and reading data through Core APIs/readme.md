@@ -37,7 +37,7 @@ Navigate to the Postman Collection: `Bootcamp > Manual Ingestion > 01 - Create a
 ### 3.1.3 Get a Signed URL for uploading a File
 Get the signed URL path(in the staging area) to which the file will be uploaded
 Navigate to the Postman Collection: `Bootcamp > Manual Ingestion > 01 - Create a Legal Tag` and click on **Send** button on the top right corner.
-![sample file](./files/wellbore.csv?raw=1)
+![sample file](./files/wellbore.csv)
 
 ### 3.1.4 Upload a File
 - Download the sample ![Sample file](./files/Guide%20to%20Data%20Governance.pdf?raw=1) to your local machine (you can upload any filetype - CSV, LAS, JSON, etc.). 
