@@ -40,7 +40,7 @@ Navigate to the Postman Collection: `Bootcamp > Manual Ingestion > 03 - Get a Si
 
 
 ### 3.1.4 Upload a File
-- Download the sample ![Sample file](./files/Guide%20to%20Data%20Governance.pdf?raw=1) to your local machine (you can upload any filetype - CSV, LAS, JSON, etc.). 
+- Download the sample ![Sample file](./files/Guide%20to%20Data%20Governance.pdf?raw=1) to your local machine (you can choose any other filetype - CSV, LAS, JSON, etc.). 
 - Navigate to the Postman Collection: `Bootcamp > Manual Ingestion > 04 - Upload a file` and click on **Send** button on the top right corner.
 - Select this file in Postman by clicking the Select File option as shown in the Screenshot below
 ![screenshot of file selection](./img/fileupload.png)
