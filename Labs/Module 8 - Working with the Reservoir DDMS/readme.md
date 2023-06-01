@@ -3,7 +3,7 @@
 In this lab you will explore fundamental capabilities and characteristics of the Reservoir DDMS. 
 
 ## Reservoir DDMS REST API - exploring the API and consume data 
-# Discover and retrieve data loaded in the Reservoir DDMS using REST API: postman 
+### Discover and retrieve data loaded in the Reservoir DDMS using REST API: postman 
 
 Load the [postman collection](RDDMS_postman_collection.json). 
 
@@ -20,7 +20,7 @@ Explore hierarchical object relationships for a seismic interpretation surface g
 
 Use UUID's to reference objects in RDDMS and externally
 
-# Discover and retrieve data loaded in the Reservoir DDMS using REST API: jupyter notebook
+### Discover and retrieve data loaded in the Reservoir DDMS using REST API: jupyter notebook
 
 Launch the [jupyter notebook](RDDMS_2dgrid.ipynb). 
 
