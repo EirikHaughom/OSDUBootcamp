@@ -7,6 +7,8 @@ In this lab you will explore fundamental capabilities and characteristics of the
 
 Load the [postman collection](RDDMS_postman_collection.json). 
 
+![Set the server address](rddms-postman.png)
+
 1. 'Refresh Token' to fetch az bearer token
 2. List the dataspaces. Currently there is one. 
 
