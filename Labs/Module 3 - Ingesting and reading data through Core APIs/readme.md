@@ -31,35 +31,39 @@ Navigate to the Postman Collection: `Bootcamp > Manual Ingestion > 01 - Create a
 
 ### 3.1.2 List Legal Tags(Optional)
 List out all the legal tags
-Navigate to the Postman Collection: `Bootcamp > Manual Ingestion > 01 - Create a Legal Tag` and click on **Send** button on the top right corner.
+Navigate to the Postman Collection: `Bootcamp > Manual Ingestion > 02 - listLegalTags` and click on **Send** button on the top right corner.
 
 
 ### 3.1.3 Get a Signed URL for uploading a File
 Get the signed URL path(in the staging area) to which the file will be uploaded
-Navigate to the Postman Collection: `Bootcamp > Manual Ingestion > 01 - Create a Legal Tag` and click on **Send** button on the top right corner.
-![sample file](./files/wellbore.csv)
+Navigate to the Postman Collection: `Bootcamp > Manual Ingestion > 03 - Get a Signed URL for uploading a file` and click on **Send** button on the top right corner.
+
 
 ### 3.1.4 Upload a File
 - Download the sample ![Sample file](./files/Guide%20to%20Data%20Governance.pdf?raw=1) to your local machine (you can upload any filetype - CSV, LAS, JSON, etc.). 
-- Navigate to the Postman Collection: `Bootcamp > Manual Ingestion > 01 - Create a Legal Tag` and click on **Send** button on the top right corner.
+- Navigate to the Postman Collection: `Bootcamp > Manual Ingestion > 04 - Upload a file` and click on **Send** button on the top right corner.
 - Select this file in Postman by clicking the Select File option as shown in the Screenshot below
 ![screenshot of file selection](./img/fileupload.png)
 
 
 ### 3.1.5 Upload File Metadata
 Upload the file metadata information such as file location & other relevant fields.
+Navigate to the Postman Collection: `Bootcamp > Manual Ingestion > 05 - Upload File Metadata` and click on **Send** button on the top right corner.
 
 
 ### 3.1.6 Get the File Metadata
 Call to validate if the metadata got created successfully
+Navigate to the Postman Collection: `Bootcamp > Manual Ingestion > 06 - Get the File Metadata` and click on **Send** button on the top right corner.
 
 
 ### 3.1.7 Get All Records (Optional)
 List out the records for the kind `osdu:wks:dataset--File.Generic:1.0.0`
+Navigate to the Postman Collection: `Bootcamp > Manual Ingestion > 07 - getAllRecords` and click on **Send** button on the top right corner.
 
 
 ### 3.1.8 Download the ingested File
 Get a Download URL (from the persistent storage area). Copy the url and paste it in the Browser to download the file.
+Navigate to the Postman Collection: `Bootcamp > Manual Ingestion > 08 - downloadURL` and click on **Send** button on the top right corner.
 
 
 
@@ -69,7 +73,7 @@ Get a Download URL (from the persistent storage area). Copy the url and paste it
 - Search for storage metadata records created during the manifest ingestion using Postman
 
 This section uses the following API from the Postman Collection: `Bootcamp > Manifest Ingestion`. All of the sample API calls are numbered and these need to be executed sequentially.
-
+![sample file](./files/wellbore.csv)
 
 ## CSV Parser: Parsing CSV files through Workflow Service
 #### Objectives
