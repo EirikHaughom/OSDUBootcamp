@@ -41604,7 +41604,7 @@
 								"body": {
 									"mode": "file",
 									"file": {
-										"src": "/C:/DBA/Guide to Data Governance.pdf"
+										"src": ""
 									}
 								},
 								"url": {
@@ -41989,7 +41989,68 @@
 							"response": []
 						},
 						{
-							"name": "04 - Ingest Master, Reference and Work Product Component data",
+							"name": "04 - Upload File Metadata",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Ensure the API was able to send a successful response\r",
+											"pm.test(\"Status code is 201\", function () {\r",
+											"    pm.response.to.have.status(201);\r",
+											"});\r",
+											"pm.test(\"id is returned\", function () {\r",
+											"    const responseJson = pm.response.json();\r",
+											"    pm.expect(responseJson.id).to.exist\r",
+											"});\r",
+											"pm.test(\"id is returned\", function () {\r",
+											"    const responseJson = pm.response.json();\r",
+											"    pm.expect(responseJson.id).to.a('string')\r",
+											"});\r",
+											"\r",
+											"const responseJson = pm.response.json();\r",
+											"pm.environment.set(\"FILE_ID\", responseJson.id);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "data-partition-id",
+										"value": "{{data_partition}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"kind\": \"osdu:wks:dataset--File.Generic:1.0.0\",\r\n    \"acl\": {\r\n        \"viewers\": [\r\n            \"data.default.viewers@{{data_partition}}.dataservices.energy\"\r\n        ],\r\n        \"owners\": [\r\n            \"data.default.viewers@{{data_partition}}.dataservices.energy\"\r\n        ]\r\n    },\r\n    \"legal\": {\r\n        \"legaltags\": [\r\n            \"{{LegalTagNameExists}}\"\r\n        ],\r\n        \"otherRelevantDataCountries\": [\r\n            \"US\"\r\n        ],\r\n        \"status\": \"compliant\"\r\n    },\r\n    \"data\": {\r\n        \"Endian\": \"BIG\",\r\n        \"DatasetProperties\": {\r\n            \"FileSourceInfo\": {\r\n                \"FileSource\": \"{{FILE_SOURCE}}\"\r\n            }\r\n        }\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/file/v2/files/metadata",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"file",
+										"v2",
+										"files",
+										"metadata"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "05 - Ingest Master, Reference and Work Product Component data",
 							"event": [
 								{
 									"listen": "test",
@@ -42064,7 +42125,7 @@
 							"response": []
 						},
 						{
-							"name": "05 - Get Manifest Ingestion Workflow Status",
+							"name": "06 - Get Manifest Ingestion Workflow Status",
 							"event": [
 								{
 									"listen": "prerequest",
@@ -42142,7 +42203,7 @@
 							"response": []
 						},
 						{
-							"name": "06 - Search Work Products",
+							"name": "07 - Search Work Products",
 							"event": [
 								{
 									"listen": "prerequest",
@@ -42203,7 +42264,7 @@
 							"response": []
 						},
 						{
-							"name": "07 - Search Work Product Components",
+							"name": "08 - Search Work Product Components",
 							"event": [
 								{
 									"listen": "prerequest",
@@ -42264,7 +42325,7 @@
 							"response": []
 						},
 						{
-							"name": "08 - Search for Dataset",
+							"name": "09 - Search for Dataset",
 							"event": [
 								{
 									"listen": "prerequest",
@@ -42325,7 +42386,7 @@
 							"response": []
 						},
 						{
-							"name": "09 - Search for Master data",
+							"name": "10 - Search for Master data",
 							"event": [
 								{
 									"listen": "prerequest",
@@ -42386,7 +42447,7 @@
 							"response": []
 						},
 						{
-							"name": "10 - Search for Reference Data",
+							"name": "11 - Search for Reference Data",
 							"event": [
 								{
 									"listen": "prerequest",
