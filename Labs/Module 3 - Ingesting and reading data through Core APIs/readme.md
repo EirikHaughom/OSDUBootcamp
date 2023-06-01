@@ -65,7 +65,7 @@ Get a Download URL (from the persistent storage area). Copy the url and paste it
 Navigate to the Postman Collection: `Bootcamp > Manual Ingestion > 08 - downloadURL` and click on **Send** button on the top right corner.
 
 <br/><br/>
-<br/><br/>
+
 
 ## 3.2 Workflow Service: Manifest-based ingestion
 #### Objectives
@@ -132,7 +132,7 @@ Navigate to the Postman Collection: `Bootcamp > Manifest Ingestion > 11 - Search
 
 
 <br/><br/>
-<br/><br/>
+
 
 ## 3.3 CSV Parser: Parsing CSV files through Workflow Service
 #### Objectives
