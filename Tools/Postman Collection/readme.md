@@ -28,11 +28,11 @@ The services mentioned below are covered, and the API calls are imported from th
 <sub>\* The Partition service is locked down on ADME, as data partitions are handled by Azure Resource Manager (ARM) through CLI, PowerShell or Azure Portal.</sub>
 
 ## Usage
-1. Copy the link to the [Postman Collection JSON file](./json/ADME%20(M14).postman_collection.json?raw=1).
+1. Copy the link to the [Postman Collection JSON file](./json/ADME%20(M14).postman_collection.json?raw=1)
 2. In Postman select *Import*.
 3. Select *Link*.
 4. Paste the link copied above.
-5. Repeat the same for the [Postman Environment JSON file](./json/ADME.postman_environment.json?raw=1).
+5. Repeat the same for the [Postman Environment JSON file](./json/ADME.postman_environment.json?raw=1)
 
 ## Environment variables
 | Variable |Format | Description |
