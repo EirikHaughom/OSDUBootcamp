@@ -140,6 +140,55 @@ Navigate to the Postman Collection: `Bootcamp > Manifest Ingestion > 11 - Search
 
 This section uses the following API from the Postman Collection: `Bootcamp > CSV Parser Ingestion`. All of the sample API calls are numbered and these need to be executed sequentially.
 
+#### 3.3.1 Create a Schema
+Generate a schema that adheres to the columns present in the CSV file.
+Navigate to the Postman Collection: `Bootcamp > CSV Parser Ingestion > 01 - Create a Schema` and click on **Send** button on the top right corner.
+
+
+
+#### 3.3.2 Get Schema details
+Get the schema created in the previous step and validate it.
+Navigate to the Postman Collection: `Bootcamp > CSV Parser Ingestion > 02 - Get Schema details` and click on **Send** button on the top right corner.
+
+
+
+#### 3.3.3 Create a Legal Tag
+Create a legal tag that will be added to the CSV data for data compliance purpose.
+Navigate to the Postman Collection: `Bootcamp > CSV Parser Ingestion > 03 - Create a Legal Tag` and click on **Send** button on the top right corner.
+
+
+
+#### 3.3.4 Get a Signed URL for uploading a CSV file
+Get the signed URL path to which the CSV file will be uploaded.
+Navigate to the Postman Collection: `Bootcamp > CSV Parser Ingestion > 04 - Get a signed URL for uploading a CSV file` and click on **Send** button on the top right corner.
+
+
+
+#### 3.2.5 Upload a CSV file
+- Download the raw ![sample wellbore csv file](./files/wellbore.csv) to your local machine. 
+- Navigate to the Postman Collection: `Bootcamp > CSV Parser Ingestion > 05 - Upload a CSV file` and click on **Send** button on the top right corner.
+- Select this file in Postman by clicking the Select File option.
+
+
+#### 3.2.6 Upload CSV file metadata
+Upload the file metadata information such as file location & other relevant fields.
+Navigate to the Postman Collection: `Bootcamp > CSV Parser Ingestion > 06 - Upload CSV file metadata` and click on **Send** button on the top right corner.
+
+
+#### 3.3.7 Trigger a CSV Parser Ingestion workflow
+Triggers the CSV Parser ingestion workflow DAG.
+Navigate to the Postman Collection: `Bootcamp > CSV Parser Ingestion > 07 - Trigger a CSV Parser Ingestion workflow` and click on **Send** button on the top right corner.
+
+
+#### 3.3.8 Get CSV Parser Ingestion Workflow Status
+Gets the status of CSV Parser Dag Run. Keep querying until it changes state to finished (typically 20-30 seconds).
+Navigate to the Postman Collection: `Bootcamp > CSV Parser Ingestion > 08 - Get CSV Parser Ingestion Workflow Status` and click on **Send** button on the top right corner.
+
+
+#### 3.3.9 Search for ingested CSV records
+Search for ingested CSV records - Search for the CSV records created earlier.
+Navigate to the Postman Collection: `Bootcamp > CSV Parser Ingestion > 09 - Search for ingested CSV records` and click on **Send** button on the top right corner.
+
 
 
 ## Congratulations! You have now completed the lab!
