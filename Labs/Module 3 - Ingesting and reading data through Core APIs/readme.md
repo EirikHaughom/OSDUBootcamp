@@ -64,7 +64,8 @@ Navigate to the Postman Collection: `Bootcamp > Manual Ingestion > 07 - getAllRe
 Get a Download URL (from the persistent storage area). Copy the url and paste it in the Browser to download the file.
 Navigate to the Postman Collection: `Bootcamp > Manual Ingestion > 08 - downloadURL` and click on **Send** button on the top right corner.
 
-
+<br/><br/>
+<br/><br/>
 
 ## 3.2 Workflow Service: Manifest-based ingestion
 #### Objectives
@@ -130,7 +131,8 @@ Call Search service to retrieve the Reference metadata records.
 Navigate to the Postman Collection: `Bootcamp > Manifest Ingestion > 11 - Search for Reference Data` and click on **Send** button on the top right corner.
 
 
-
+<br/><br/>
+<br/><br/>
 
 ## 3.3 CSV Parser: Parsing CSV files through Workflow Service
 #### Objectives
