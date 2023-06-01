@@ -1,0 +1,14 @@
+{
+    "name": "bootcamp-tno-data-default",
+    "description": "A default legaltag to be used for open TNO data",
+    "properties": {
+        "countryOfOrigin":["US"],
+        "contractId":"Unknown",
+        "expirationDate":"",
+        "dataType":"Public Domain Data", 
+        "originator":"OSDU",
+        "securityClassification":"Public",
+        "exportClassification":"No License Required",
+        "personalData":"No Personal Data"
+    }
+}

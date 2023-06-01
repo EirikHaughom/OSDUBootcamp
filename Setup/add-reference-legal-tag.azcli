@@ -1,1 +1,3 @@
-osdu legal add -p ../legal-tags/bootcamp-osdu-reference-default.json
+osdu legal add -p Setup/legal-tags/bootcamp-osdu-reference-default.json
+osdu legal add -p Setup/legal-tags/bootcamp-private-default.json
+osdu legal add -p Setup/legal-tags/bootcamp-tno-data-default.json
