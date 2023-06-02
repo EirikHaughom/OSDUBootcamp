@@ -27,3 +27,5 @@ Download and launch the [jupyter notebook:](RDDMS_2dgrid.ipynb). Explore how res
 PS# `docker run -it --rm -v //c/Users/.../Downloads/:/data  open-etp-client openETPServer space -S ws://10.0.1.4:9004 -u foo -p bar -s demo/bootcamp  --import-epc ./data/volve.epc`
 
 PS# `docker run -it --rm  open-etp-client openETPServer space -S ws://10.0.1.4:9004 -u foo -p bar -s demo/bootcamp --stats`
+
+Can you discover it via postman or jupyter notebook?
