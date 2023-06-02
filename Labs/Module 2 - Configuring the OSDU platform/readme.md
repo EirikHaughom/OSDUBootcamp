@@ -6,5 +6,5 @@ This module will cover the following topics:
 - **2. Legal Service**: Legal tags and data categorization management.
 - **3. Schema Service**: Schema management.
 
-## Congratulations! You have now completed the lab!
+## Congratulations! You have now completed the module!
 Continue with the next module: [Module 3 - Ingesting and reading data through Core APIs](../Module%203%20-%20Ingesting%20and%20reading%20data%20through%20Core%20APIs/readme.md)

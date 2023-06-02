@@ -11,5 +11,5 @@ In this module you will learn how to use the OSDU API to read and write data to 
 
 ## CSV Parser
 
-## Congratulations! You have now completed the lab!
+## Congratulations! You have now completed the module!
 Continue with the next module: [Module 4 - Constructing Searches](../Module%204%20-%20Constructing%20Searches/readme.md)
