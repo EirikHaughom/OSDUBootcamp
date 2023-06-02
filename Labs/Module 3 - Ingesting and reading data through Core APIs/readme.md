@@ -193,5 +193,5 @@ Navigate to the Postman Collection: `Bootcamp > CSV Parser Ingestion > 09 - Sear
 
 
 
-## Congratulations! You have now completed the lab!
+## Congratulations! You have now completed the module!
 Continue with the next module: [Module 4 - Constructing Searches](../Module%204%20-%20Constructing%20Searches/readme.md)

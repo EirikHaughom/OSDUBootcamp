@@ -87,5 +87,5 @@ curl --location --request GET 'https://<instance>.energy.azure.com/api/entitleme
 3. Review the token and the claims, especially focus on object id (`oid`), tenant id (`tid`) and subject (`sub`).
 4. Inspect your personal access token from the Postman `Authorization` tab on the `ADME (M14)` collection. Notice that the `oid` is different from the App Registration token. The `oid` is the object ID of the App Registration (Service Principal) or your personal user, depending on which token you are inspecting.
 
-## Congratulations! You have now completed the lab!
+## Congratulations! You have now completed the module!
 Continue with the next module: [Module 2 - Configuring the OSDU platform](../Module%202%20-%20Configuring%20the%20OSDU%20platform/)

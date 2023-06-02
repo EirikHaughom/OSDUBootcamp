@@ -382,5 +382,5 @@ To retrieve the next batch of records, you need to make another request to the c
 
 For each request you send with this cursor, you will get the next batch of records. You can keep sending requests until you get an empty response, which means that you have reached the end of the records.
 
-## Congratulations! You have now completed the lab!
-Continue with the next module: [Module 5 - Working with the Wellbore DDMS](../Module%205%20-%20Working%20with%20the%20Wellbore%20DDMS/README.md)
+## Congratulations! You have now completed the module!
+Continue with the next module: [Module 5 - Working with the Wellbore DDMS](../Module%205%20-%20Working%20with%20the%20Wellbore%20DDMS/)

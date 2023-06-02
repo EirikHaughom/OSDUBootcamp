@@ -30,3 +30,5 @@ PS# `docker run -it --rm -v //c/Users/.../Downloads/:/data  open-etp-client open
 
 One can import RESQML files to the RDMMS too: use `--import-epc` instead. 
 Can you discover it via postman or jupyter notebook?
+
+## Congratulations! You have now completed the module!
