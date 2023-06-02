@@ -24,7 +24,8 @@ Download and launch the [jupyter notebook:](RDDMS_2dgrid.ipynb). Explore how res
 
 ### Use openETP client to export a RESQML epc file container with various Volve model data
 
-PS# `docker run -it --rm  open-etp-client openETPServer space -S ws://10.0.1.4:9004 -u foo -p bar -s demo/bootcamp --stats`
+PS# `docker run -it --rm  open-etp-client openETPServer space -S ws://10.0.1.4:9004 -u foo -p bar -s demo/bootcamp --stats` 
+
 PS# `docker run -it --rm -v //c/Users/.../Downloads/:/data  open-etp-client openETPServer space -S ws://10.0.1.4:9004 -u foo -p bar -s demo/volve  --export-epc ./data/volve.epc`
 
 You can import RESQML files to the RDMMS too: use `--import-epc` instead. 
