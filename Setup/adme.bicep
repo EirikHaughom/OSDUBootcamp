@@ -1,28 +1,17 @@
-param deploymentName string = 'adme-deployment'
 param location string = 'eastus'
-param storageAccountName string = '<storage-account-name>'
-param containerName string = '<container-name>'
+param dataPartitionNames string = 'demodata'
+param admeName string = 'adme'
+param authAppId string = '6dec5e25-d290-429e-933f-c9725a939224'
 
-resource storageAccount 'Microsoft.Storage/storageAccounts@2021-08-01' = {
-  name: storageAccountName
-  location: location
-  sku: {
-    name: 'Standard_LRS'
-  }
-  kind: 'StorageV2'
-}
-
-resource adme 'Microsoft.DataManager/managerServices@2022-01-01-preview' = {
-  name: deploymentName
-  location: location
-  properties: {
-    sku: {
-      name: 'Standard'
-      tier: 'Standard'
-    }
-    dataPlaneStorageAccountResourceId: storageAccount.id
-    dataPlaneStorageAccountKey: listKeys(storageAccount.id, '2021-08-01').keys[0].value
-    dataPlaneStorageAccountEndpoint: format('https://{0}.blob.core.windows.net', storageAccount.name)
-    dataPlaneStorageAccountContainerName: containerName
+resource adme 'Microsoft.OpenEnergyPlatform/energyServices@2022-04-04-preview' = {
+    name: admeName
+    location: location
+    properties: {
+    authAppId: authAppId
+    dataPartitionNames: [
+      {
+        name: dataPartitionNames
+      }
+    ]
   }
 }
