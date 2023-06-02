@@ -26,4 +26,7 @@ Download and launch the [jupyter notebook:](RDDMS_2dgrid.ipynb). Explore how res
 
 PS# `docker run -it --rm  open-etp-client openETPServer space -S ws://osdubootcamp.azure-api.net:9004 -u foo -p bar -s demo/bootcamp --stats` 
 
-## Congratulations! You have now completed the module!
+PS# `docker run -it --rm -v //c/Users/.../Downloads/:/data  open-etp-client openETPServer space -S ws://osdubootcamp.azure-api.net:9004 -u foo -p bar -s demo/volve  --export-epc ./data/volve.epc`
+
+One can import RESQML files to the RDMMS too: use `--import-epc` instead. 
+Can you discover it via postman or jupyter notebook?
