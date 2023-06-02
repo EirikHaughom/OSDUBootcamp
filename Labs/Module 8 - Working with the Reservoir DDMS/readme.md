@@ -22,9 +22,8 @@ Load the [postman collection](RDDMS_postman_collection.json). Set the REST serve
 
 Download and launch the [jupyter notebook:](RDDMS_2dgrid.ipynb). Explore how resources are accessed, referenced, and the array content is vizualised.
 
-## Use openETP client to ingest a RESQML epc file container with various Volve model data
+### Use openETP client to ingest a RESQML epc file container with various Volve model data
 
+PS# `docker run -it --rm -v //c/Users/.../Downloads/:/data  open-etp-client openETPServer space -S ws://10.0.1.4:9004 -u foo -p bar -s demo/bootcamp  --import-epc ./data/volve.epc`
 
-
-
-
+PS# `docker run -it --rm  open-etp-client openETPServer space -S ws://10.0.1.4:9004 -u foo -p bar -s demo/bootcamp --stats`
