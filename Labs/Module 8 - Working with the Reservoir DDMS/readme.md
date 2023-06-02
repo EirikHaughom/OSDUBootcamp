@@ -8,7 +8,7 @@ In this lab you will explore fundamental capabilities and characteristics of the
 Load the [postman collection](RDDMS_postman_collection.json). Set the REST server address.
 ![Set the server address](rddms-postman.png)
 
-0. `Refresh Token` to fetch bearer token
+0. Don't use `Refresh Token` to fetch bearer token today, instead copy your PS# `az account get-access-token` as bearer token.
 1. `Get Data Spaces List`. Currently there is one. 
 2. `Get Resources List` List all resources contained in a data space. In our example, we have a Grid2d regular surface represetation of a HorizonInterpretation of a GeneticBoundary Feature, a CRS definition and a reference to the grid data array.
 3. `Get All Resources` What is the name of the Feature, and what does the Grid2d represent? UUID's are used reference resources in RDDMS and externally
@@ -22,11 +22,11 @@ Load the [postman collection](RDDMS_postman_collection.json). Set the REST serve
 
 Download and launch the [jupyter notebook:](RDDMS_2dgrid.ipynb). Explore how resources are accessed, referenced, and the array content is vizualised.
 
-### Use openETP client to export a RESQML epc file container with various Volve model data
+### Demo only: Use openETP client to export a RESQML epc file container with various Volve model data
 
-PS# `docker run -it --rm  open-etp-client openETPServer space -S ws://10.0.1.4:9004 -u foo -p bar -s demo/bootcamp --stats` 
+PS# `docker run -it --rm  open-etp-client openETPServer space -S ws://osdubootcamp.azure-api.net:9004 -u foo -p bar -s demo/bootcamp --stats` 
 
-PS# `docker run -it --rm -v //c/Users/.../Downloads/:/data  open-etp-client openETPServer space -S ws://10.0.1.4:9004 -u foo -p bar -s demo/volve  --export-epc ./data/volve.epc`
+PS# `docker run -it --rm -v //c/Users/.../Downloads/:/data  open-etp-client openETPServer space -S ws://osdubootcamp.azure-api.net:9004 -u foo -p bar -s demo/volve  --export-epc ./data/volve.epc`
 
-You can import RESQML files to the RDMMS too: use `--import-epc` instead. 
+One can import RESQML files to the RDMMS too: use `--import-epc` instead. 
 Can you discover it via postman or jupyter notebook?
