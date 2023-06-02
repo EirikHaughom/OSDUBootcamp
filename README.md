@@ -7,16 +7,13 @@ This repository contains the material for the OSDU Bootcamp. The bootcamp is a h
 Please perform these preparations **before attending the bootcamp**, this will ensure that you can get the most out of the bootcamp and avoids spending time on installing and configuring software.
 
 ### 1. Install OSDU CLI
-The OSDU CLI is a command line tool that allows you to interact with the OSDU platform. It is used to ingest data, create and manage data partitions, and more. The CLI is available for Windows, Linux and MacOS. Please follow the instructions in the [OSDU CLI documentation](https://community.opengroup.org/osdu/documentation/-/blob/master/docs/using-cli.md) to install the CLI.
+The OSDU CLI is a command line tool that allows you to interact with the OSDU platform. It is used to ingest data, create and manage data partitions, and more. The CLI is available for Windows, Linux and MacOS. Please follow the instructions in the [OSDU CLI documentation](https://community.opengroup.org/osdu/ui/data-loading/osdu-cli) to install the CLI.
 
 ### 2. Install Postman
 Postman is a tool that allows you to interact with REST APIs. It is used in the bootcamp to interact with the OSDU APIs. Please follow the instructions in the [Postman documentation](https://learning.postman.com/docs/getting-started/installation-and-updates/) to install Postman.
 
 ### 3. Import Postman OSDU Bootcamp Collection
-
-***WORK IN PROGRESS***
-
-The Postman collection contains a set of requests that are used in the bootcamp. Please follow the instructions in the [OSDU Bootcamp Postman Collection]() to import the collection and environment.
+The Postman collection contains a set of requests that are used in the bootcamp. Please follow the instructions in the [OSDU Bootcamp Postman Collection](/Tools/Postman%20Collection/) to import the collection and environment.
 
 ## Modules
 The bootcamp is built up of a set of modules that can be chosen based on the audience. 
@@ -24,12 +21,12 @@ The bootcamp is built up of a set of modules that can be chosen based on the aud
 ### Presentations (Day 1, first half)
 | Module | Description | Time Estimate | PowerPoint |
 | --- | --- | --- | --- |
-| OSDU Introduction | Introduction about OSDU and the core promise of OSDU. Include end user perspective / value markers. | X min | [Link]() |
-| ADME Introduction | Overview of Azure Data Manager for Energy (ADME) and the value it brings | 15 min | [Link]() |
-| OSDU Concepts | Introduction to the building blocks of OSDU. Core services, DDMS, Ingestion, schemas, data structure +++, Master/reference Data | X min | [Link]() |
-| OSDU Incubator features | Overview of the incubator features (GeoSpatial Consumption Zone, External Data Services, Policy engine, ADME and Experimental Features) | X min | [Link]() |
-| ADME Deployments | Get ADME available for your project: DEV instance, Cost management, Working with logs using Azure | X min | [Link]() |
-| Tools and utilities | OSDU CLI, Postman, Notebooks: Using OSDU Python SDK, Using native Python, Power BI, Spotfire and 3rd party tools (ESA EarthNet, INT IVAAP, SLB Petrel, SLB SEDS, Halliburton Seismic Engine, AspenTech RMS) | X min | [Link]() |
+| OSDU Introduction | Introduction about OSDU and the core promise of OSDU. Include end user perspective / value markers. | X min | [Link](//Presentations/1.%20OSDU%20Introduction.pptx) |
+| ADME Introduction | Overview of Azure Data Manager for Energy (ADME) and the value it brings | 15 min | [Link](/Presentations/2.%20ADME%20Introduction.pptx) |
+| OSDU Concepts | Introduction to the building blocks of OSDU. Core services, DDMS, Ingestion, schemas, data structure +++, Master/reference Data | X min | [Link](/Presentations/3.%20OSDU%20Concepts.pptx) |
+| OSDU Incubator features | Overview of the incubator features (GeoSpatial Consumption Zone, External Data Services, Policy engine, ADME and Experimental Features) | X min | [Link](/Presentations/4.%20OSDU%20Incubator%20features.pptx) |
+| ADME Deployments | Get ADME available for your project: DEV instance, Cost management, Working with logs using Azure | X min | [Link](/Presentations/5.%20ADME%20Deployments.pptx) |
+| Tools and utilities | OSDU CLI, Postman, Notebooks: Using OSDU Python SDK, Using native Python, Power BI, Spotfire and 3rd party tools (ESA EarthNet, INT IVAAP, SLB Petrel, SLB SEDS, Halliburton Seismic Engine, AspenTech RMS) | X min | [Link](/Presentations/6.%20Tools%20and%20utilities.pptx) |
 
 
 ### Hand-on-Labs (Day 1, second half + Day 2)
@@ -42,24 +39,4 @@ The bootcamp is built up of a set of modules that can be chosen based on the aud
 | Lab Module 5: Working with the Seismic DDMS | Learn how to use the OSDU API to read and write seismic data to the OSDU platform using the Seismic DDMS. | [Link](/Labs/Module%205%20-%20Working%20with%20the%20Wellbore%20DDMS/) |
 | Lab Module 6: Working with the Wellbore DDMS | Learn how to use the OSDU API to read and write wellbore data to the OSDU platform using the Wellbore DDMS. | [Link](/Labs/Module%206%20-%20Working%20with%20the%20Well%20Delivery%20DDMS/) |
 | Lab Module 7: Working with the WellDelivery DDMS | Learn how to use the OSDU API to read and write well delivery data to the OSDU platform using the WellDelivery DDMS. | [Link](/Labs/Module%207%20-%20Working%20with%20the%20Seismic%20DDMS/) |
-| Lab Module 8: Working with the Reservoir DDMS | Learn how to use the OSDU API to read and write reservoir data to the OSDU platform using the Reservoir DDMS. | [Link](/Labs/Module%208%20-%20Working%20with%20the%20Reservoir%20DDMS/) |
-
-### Tools and utilities
-* OSDU CLI 
-* Postman 
-* Notebooks
-    * Using OSDU Python SDK
-    * Using native Python
-* Power BI from Microsoft
-* Spotfire from Tibco
-
-### Working with the OSDU Data Platform Core APIs
-Hands on training working with OSDU Core API 
-* WP/WPC 
-* Custom Schema 
-* WKS 
-* Manifest ingestion 
-* Search 
-
-### Governance - both data ops and technology
-Who, what and how to interact with the OSDU community (?)
+| Lab Module 8: Working with the Reservoir DDMS | Learn how to use the OSDU API to read and write reservoir data to the OSDU platform using the Reservoir DDMS. | [Link](/Labs/Module%208%20-%20Working%20with%20the%20Reservoir%20DDMS/)<br>[pptx](/Presentations/8.%20Reservoir%20DDMS.pptx)|
