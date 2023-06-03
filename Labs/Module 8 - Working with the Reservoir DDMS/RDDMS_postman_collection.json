@@ -733,12 +733,12 @@
 		},
 		{
 			"key": "RESERVOIR_DDMS_HOST",
-			"value": "http://osdubootcamp.azure-api.net/reservoir/v2",
+			"value": "https://osdubootcamp.azure-api.net/reservoir/v2",
 			"type": "string"
 		},
 		{
 			"key": "Token_Fetch_URL",
-			"value": "http://osdubootcamp.azure-api.net/reservoir/v2/auth/token",
+			"value": "https://osdubootcamp.azure-api.net/reservoir/v2/auth/token",
 			"type": "string"
 		},
 		{

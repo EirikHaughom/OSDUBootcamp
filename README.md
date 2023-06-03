@@ -21,7 +21,7 @@ The bootcamp is built up of a set of modules that can be chosen based on the aud
 ### Presentations (Day 1, first half)
 | Module | Description | Time Estimate | PowerPoint |
 | --- | --- | --- | --- |
-| OSDU Introduction | Introduction about OSDU and the core promise of OSDU. Include end user perspective / value markers. | X min | [Link](//Presentations/1.%20OSDU%20Introduction.pptx) |
+| OSDU Introduction | Introduction about OSDU and the core promise of OSDU. Include end user perspective / value markers. | X min | [Link](/Presentations/1.%20OSDU%20Introduction.pptx) |
 | ADME Introduction | Overview of Azure Data Manager for Energy (ADME) and the value it brings | 15 min | [Link](/Presentations/2.%20ADME%20Introduction.pptx) |
 | OSDU Concepts | Introduction to the building blocks of OSDU. Core services, DDMS, Ingestion, schemas, data structure +++, Master/reference Data | X min | [Link](/Presentations/3.%20OSDU%20Concepts.pptx) |
 | OSDU Incubator features | Overview of the incubator features (GeoSpatial Consumption Zone, External Data Services, Policy engine, ADME and Experimental Features) | X min | [Link](/Presentations/4.%20OSDU%20Incubator%20features.pptx) |
