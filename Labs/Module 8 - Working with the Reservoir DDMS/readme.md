@@ -7,8 +7,8 @@ In this lab you will explore fundamental capabilities and characteristics of the
 
 ## Reservoir DDMS REST API - exploring the API and consume data 
 ### Discover and retrieve data loaded in the Reservoir DDMS using REST API: postman 
+In this lab we will use the following Postman folder: `Bootcamp > Lab Module 8 - Working with the Reservoir DDMS`
 
-0. Don't use `Refresh Token` to fetch bearer token today, instead copy your PS# `az account get-access-token` as bearer token.
 1. `Get Data Spaces List`. Currently there is one. 
 2. `Get Resources List` List all resources contained in a data space. In our example, we have a Grid2d regular surface represetation of a HorizonInterpretation of a GeneticBoundary Feature, a CRS definition and a reference to the grid data array.
 3. `Get All Resources` What is the name of the Feature, and what does the Grid2d represent? UUID's are used reference resources in RDDMS and externally
@@ -24,9 +24,9 @@ Download and launch the [jupyter notebook:](RDDMS_2dgrid.ipynb). Explore how res
 
 ### Demo only: Use openETP client to export a RESQML epc file container with various Volve model data
 
-PS# `docker run -it --rm  open-etp-client openETPServer space -S ws://osdubootcamp.azure-api.net:9004 -u foo -p bar -s demo/bootcamp --stats` 
+PS# `docker run -it --rm  open-etp-client openETPServer space -S wss://osdubootcamp.azure-api.net -u foo -p bar -s demo/bootcamp --stats` 
 
-PS# `docker run -it --rm -v //c/Users/.../Downloads/:/data  open-etp-client openETPServer space -S ws://osdubootcamp.azure-api.net:9004 -u foo -p bar -s demo/volve  --export-epc ./data/volve.epc`
+PS# `docker run -it --rm -v //c/Users/.../Downloads/:/data  open-etp-client openETPServer space -S wss://osdubootcamp.azure-api.net -u foo -p bar -s demo/volve  --export-epc ./data/volve.epc`
 
 One can import RESQML files to the RDMMS too: use `--import-epc` instead. 
 Can you discover it via postman or jupyter notebook?

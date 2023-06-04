@@ -6,7 +6,7 @@ In this module you will learn how to use the OSDU API to search for data in the 
 - Learn how to construct basic searches to retrieve data from the OSDU platform.
 
 ## 4.1 Search API
-This module uses the following API from the Postman Collection: `Search > (POST) search`, or API endpoint `/api/search/v2/query`. All of the examples provided below should be pasted into the body of the request.
+This module uses the following API from the OSDU Bootcamp Postman Collection: `Search > (POST) search`, or API endpoint `/api/search/v2/query`. All of the examples provided below should be pasted into the body of the request.
 
 ### 4.1.1 Search by kind
 The below example shows how to search for all records of a specific kind. In this case, we are searching for all records of kind `osdu:wks:master-data--Wellbore:1.0.0`.
@@ -44,10 +44,12 @@ The below example shows how to search for all records of multiple kinds. In this
 ### 4.1.4 Search by specific record ID
 The below example shows how to search for a specific record by its ID. In this case, we are searching for the record with ID `contoso-opendes:master-data--Well:7018`.
 
+> Note: Replace contoso-opendes with the data partition name for the OSDU Bootcamp data partition.
+
 ```json
 {
   "kind": "*:*:*:*",
-  "query": "id:\"consoso-opendes:master-data--Well:7018\""
+  "query": "id:\"contoso-opendes:master-data--Well:7018\""
 }
 ```
 

@@ -8,7 +8,7 @@ This module will cover the following topics:
 OSDU uses Oauth 2.0 for authentication. In this section you will learn how to authenticate towards OSDU using Oauth 2.0 using OSDU CLI and Postman.
 
 ### 1.1 OSDU CLI
-1. Download the [config file](./config?raw=1) (Right Click - Save As) and save it to `C:/Users/\<username\>/.osducli` (Windows) or `/users/<username>/.osducli/` (Linux/MacOS).
+1. Download the config file you received by email and save it to `C:/Users/\<username\>/.osducli` (Windows) or `/users/<username>/.osducli/` (Linux/MacOS).
 2. Open a terminal and run the following command to authenticate towards OSDU:
     ```bash
     osdu status
@@ -36,21 +36,24 @@ OSDU uses Oauth 2.0 for authentication. In this section you will learn how to au
     osdu entitlements mygroups
     ```
 
-### 1.2 Postman
-Ensure that you have installed the prerequisites listed in the [main readme](../../readme.md#preparations).
+### 1.2 Postman (Personal token)
+Ensure that you have installed the prerequisites listed in the [main readme](/README.md#preparations).
 
-1. Open Postman and go to `Environments` and select the `ADME` environment.
+1. Open Postman and go to `Environments` and select the `OSDU Bootcamp` environment.
 2. Configure it using the details from the OSDU CLI (`osdu config list`).
-3. Go to `Collections` and select the `ADME (M14)` collection (root folder).
+3. Go to `Collections` and select the `ADME (OSDU Bootcamp)` collection (root folder).
 4. Select the `Authorization` tab and click `Get New Access Token`.
 5. Perform the interactive authentication in your browser. Ensure that the token creation is successful.
-6. Run the following request to make sure the token is valid: `Entitlements > (GET) listGroups` and click *SEND*.
-7. Compare the response with the output from the OSDU CLI (`osdu entitlements mygroups`).
+6. Click `Use Token` to add the token to your Postman.
+7. Copy the token into into notepad or similar and store it for later use.
+8. Run the following request to make sure the token is valid: `Entitlements > (GET) listGroups` and click *SEND*.
+9. Compare the response with the output from the OSDU CLI (`osdu entitlements mygroups`).
+10. Copy the token into a notepad and store it for later use.
 
 ### 1.3 Manual authentication as an App Registration (Service Principal)
 This authentication mechanism is mainly used to integrate external applications programmatically into OSDU. We will use an example App Registration (client id and client secret) to authenticate towards OSDU.
 
-1. In Postman, go to the `ADME (M14)` collection and open the folde `Authenticate > App Registration`.
+1. In Postman, go to the `ADME (OSDU Bootcamp)` collection and open the folder `Authenticate > App Registration`.
 2. Inspect the URI and Body of the request to understand the format.
 | Parameter | Description |
 | --- | --- |
@@ -60,6 +63,7 @@ This authentication mechanism is mainly used to integrate external applications 
 | `scope` | The scope of the authentication request. This should always start with the OSDU instance's client_id followed by the required scopes, e.g. `00000000000-0000-0000-00000000/.default openid profile offline_access` |
 3. Click `Send` to execute the request.
 4. Verify that the response contains an access token.
+5. Copy the token into notepad or similar and store it for later use.
 5. Execute a test-call to the entitlements service to verify that the token is valid.
 
 Powershell example (Windows):<br> Replace `<instance>`, `<data-partition-id>` and `<access-token>` with your own values (not including <>). 
@@ -82,10 +86,10 @@ curl --location --request GET 'https://<instance>.energy.azure.com/api/entitleme
 ```
 
 ### 1.4 Inspect JWT/access token
-1. Copy the JWT/access token from the Postman `Authorization` tab.
+1. Copy the first (personal) JWT/access token you created, stored in your notes.
 2. Open [https://jwt.ms/](https://jwt.ms/) and paste the token into the `Encoded` field.
 3. Review the token and the claims, especially focus on object id (`oid`), tenant id (`tid`) and subject (`sub`).
-4. Inspect your personal access token from the Postman `Authorization` tab on the `ADME (M14)` collection. Notice that the `oid` is different from the App Registration token. The `oid` is the object ID of the App Registration (Service Principal) or your personal user, depending on which token you are inspecting.
+4. Compare your personal JWT/access token with the app registration (service principal) token. Notice that the `oid` is different from the App Registration token. The `oid` is the object ID of the App Registration (Service Principal) or your personal user, depending on which token you are inspecting.
 
 ## Congratulations! You have now completed the module!
 Continue with the next module: [Module 2 - Configuring the OSDU platform](../Module%202%20-%20Configuring%20the%20OSDU%20platform/)
