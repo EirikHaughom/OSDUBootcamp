@@ -2,11 +2,11 @@
 
 In this lab you will explore fundamental capabilities and characteristics of the Reservoir DDMS. 
 
+## Prerequisites
+- Postman installed with the OSDU Bootcamp collection. See [README.MD](/README.md) for instructions.
+
 ## Reservoir DDMS REST API - exploring the API and consume data 
 ### Discover and retrieve data loaded in the Reservoir DDMS using REST API: postman 
-
-Load the [postman collection](RDDMS_postman_collection.json). Set the REST server address.
-![Set the server address](rddms-postman.png)
 
 0. Don't use `Refresh Token` to fetch bearer token today, instead copy your PS# `az account get-access-token` as bearer token.
 1. `Get Data Spaces List`. Currently there is one. 
