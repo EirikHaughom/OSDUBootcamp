@@ -11,6 +11,11 @@ In this module you will learn how to use the OSDU API to create wellbore/well lo
 
 Wellbore Domain Data Management Services (Wellbore-DDMS) Open Subsurface Data Universe (OSDU) is one of the several backend services that comprise OSDU software ecosystem.
 
+A service that persists data of specfic domain and provide access through optimized domain APIs. Governed by the platform but developed and evolved independently.
+
+![components-architecture](images/components-architecture.png)
+
+## 5.2 Wellbore DDMS endpoints
 Following endpoints provided:
 
 - Well:
@@ -21,3 +26,6 @@ Following endpoints provided:
 
 - WellLog:
 ![endpoints-welllog](images/endpoints-welllog.png)
+
+- Log recognition:
+![endpoints-welllog](images/endpoints-logrecognition.png)
