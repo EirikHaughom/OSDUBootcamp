@@ -91,42 +91,38 @@ Navigate to the Postman Collection: `Bootcamp > Manifest Ingestion > 02 - Get a 
 - Select this file in Postman by clicking the Select File option.
 
 
-#### 3.2.4 Upload File Metadata
-Upload the file metadata information such as file location & other relevant fields.
-Navigate to the Postman Collection: `Bootcamp > Manifest Ingestion > 04 - Upload File Metadata` and click on **Send** button on the top right corner.
 
-
-#### 3.2.5 Ingest Master, Reference & Work Product Component data
+#### 3.2.4 Ingest Master, Reference & Work Product Component data
 Ingest the Master, Reference and Work Product Component manifest metadata.
 Navigate to the Postman Collection: `Bootcamp > Manifest Ingestion > 05 - Ingest Master, Reference and Work Product Component data` and click on **Send** button on the top right corner.
 
 
-#### 3.2.6 Get Manifest Ingestion Workflow Status
+#### 3.2.5 Get Manifest Ingestion Workflow Status
 The workflow will start and will be in the running state. Keep querying until it changes state to finished (typically 20-30 seconds).
 Navigate to the Postman Collection: `Bootcamp > Manifest Ingestion > 06 - Get Manifest Ingestion Workflow Status` and click on **Send** button on the top right corner.
 
 
-#### 3.2.7 Search Work Products(Optional)
+#### 3.2.6 Search Work Products(Optional)
 Call Search service to retrieve the Work Product metadata records.
 Navigate to the Postman Collection: `Bootcamp > Manifest Ingestion > 07 - Search Work Products` and click on **Send** button on the top right corner.
 
 
-#### 3.2.8 Search Work Product Components(Optional)
+#### 3.2.7 Search Work Product Components(Optional)
 Call Search service to retrieve the Work Product Component metadata records.
 Navigate to the Postman Collection: `Bootcamp > Manifest Ingestion > 08 - Search Work Product Components` and click on **Send** button on the top right corner.
 
 
-#### 3.2.9 Search for Dataset(Optional)
+#### 3.2.8 Search for Dataset(Optional)
 Call Search service to retrieve the Dataset metadata records.
 Navigate to the Postman Collection: `Bootcamp > Manifest Ingestion > 09 - Search for Dataset` and click on **Send** button on the top right corner.
 
 
-#### 3.2.10 Search for Master data(Optional)
+#### 3.2.9 Search for Master data(Optional)
 Call Search service to retrieve the Master metadata records.
 Navigate to the Postman Collection: `Bootcamp > Manifest Ingestion > 10 - Search for Master data` and click on **Send** button on the top right corner.
 
 
-#### 3.2.11 Search for Reference Data(Optional)
+#### 3.2.10 Search for Reference Data(Optional)
 Call Search service to retrieve the Reference metadata records.
 Navigate to the Postman Collection: `Bootcamp > Manifest Ingestion > 11 - Search for Reference Data` and click on **Send** button on the top right corner.
 
