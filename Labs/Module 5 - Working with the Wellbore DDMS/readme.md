@@ -15,6 +15,11 @@ A service that persists data of specfic domain and provide access through optimi
 
 ![components-architecture](images/components-architecture.png)
 
+DDMS features:
+- Leverage the core services
+- Adhere to the usage patterns and common behavior
+- Provide highly optimized storage & access for bulk data, with highly opinionated API's delivering the data required to enable domain workflows.
+
 ## 5.2 Wellbore DDMS endpoints
 Following endpoints provided:
 
