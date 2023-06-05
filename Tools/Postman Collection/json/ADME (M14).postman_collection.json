@@ -1,10 +1,11 @@
 {
 	"info": {
-		"_postman_id": "1e29df74-1b0d-470d-bf40-51eb2ea9e90c",
+		"_postman_id": "0c699827-0568-4886-bb7c-187ce6fab6aa",
 		"name": "ADME (OSDU Bootcamp)",
 		"description": "This collection is maintained at [ADME/Guides/Postman Collection at main · EirikHaughom/ADME · GitHub](https://github.com/EirikHaughom/ADME/tree/main/Guides/Postman%20Collection)",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "19343608"
+		"_exporter_id": "23299267",
+		"_collection_link": "https://equinor.postman.co/workspace/OSDU-Collection~6361620f-bfef-4d01-8cd6-d2008fdcee9f/collection/23299267-0c699827-0568-4886-bb7c-187ce6fab6aa?action=share&creator=23299267&source=collection_link"
 	},
 	"item": [
 		{
@@ -40864,6 +40865,469 @@
 									]
 								}
 							]
+						}
+					]
+				},
+				{
+					"name": "bootcamp demo",
+					"item": [
+						{
+							"name": "00 Create OSDU Wellbore",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"var dataPartition = pm.environment.get(\"data-partition-id\");\r",
+											"var rand = pm.environment.get(\"WellboreDMSRunId\")\r",
+											"postman.setEnvironmentVariable(\"WellboreRecordID\", dataPartition + \":master-data--Wellbore:\" + rand);"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response must be valid\", function () {\r",
+											"     pm.response.to.be.ok;\r",
+											"     pm.response.to.be.withBody;\r",
+											"     pm.response.to.be.json;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"status code is 200\", function () {\r",
+											"     pm.expect(pm.response.code).to.eql(200);\r",
+											"     var jsonData = pm.response.json();\r",
+											"     pm.environment.set(\"wellbore_record_id\", jsonData.recordIds[0]);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"No records were skipped\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.skippedRecordIds.length).to.equal(0);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "data-partition-id",
+										"type": "text",
+										"value": "{{data_partition}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\r\n    {\r\n        \"acl\": {\r\n            \"viewers\": [\r\n                \"data.default.viewers@{{data_partition}}.dataservices.energy\"\r\n            ],\r\n            \"owners\": [\r\n                \"data.default.owners@{{data_partition}}.dataservices.energy\"\r\n            ]\r\n        },\r\n        \"kind\": \"osdu:wks:master-data--Wellbore:1.0.0\",\r\n        \"legal\": {\r\n            \"legaltags\": [\r\n                \"npequinor-dev-equinor-private-default\"\r\n            ],\r\n            \"otherRelevantDataCountries\": [\r\n                \"NO\",\r\n                \"US\"\r\n            ]\r\n        },\r\n        \"data\": {\r\n            \"SpatialLocation\": {\r\n                \"Wgs84Coordinates\": {\r\n                    \"features\": [\r\n                        {\r\n                            \"geometry\": {\r\n                                \"coordinates\": [\r\n                                    [\r\n                                        -103.2380248,\r\n                                        46.8925081,\r\n                                        5301.0\r\n                                    ],\r\n                                    [\r\n                                        -103.2380248,\r\n                                        46.8925081,\r\n                                        2801.0\r\n                                    ],\r\n                                    [\r\n                                        -103.2378748,\r\n                                        46.892608100000004,\r\n                                        301.0\r\n                                    ],\r\n                                    [\r\n                                        -103.23742477750001,\r\n                                        46.89270811,\r\n                                        -2199.0\r\n                                    ],\r\n                                    [\r\n                                        -103.23667470999663,\r\n                                        46.892808120001,\r\n                                        -4699.0\r\n                                    ],\r\n                                    [\r\n                                        -103.2356245974865,\r\n                                        46.892908130002,\r\n                                        -7199.0\r\n                                    ]\r\n                                ],\r\n                                \"type\": \"LineString\"\r\n                            },\r\n                            \"properties\": {\r\n                                \"name\": \"Newton 2-31-Lat-1\"\r\n                            },\r\n                            \"type\": \"Feature\"\r\n                        }\r\n                    ],\r\n                    \"type\": \"FeatureCollection\"\r\n                }\r\n            },\r\n            \"FacilityName\": \"Faciliity_DemoWell\"\r\n        },\r\n        \"meta\": [\r\n            {\r\n                \"kind\": \"Unit\",\r\n                \"name\": \"Measure depth default unit\",\r\n                \"persistableReference\": \"persistableReference\",\r\n                \"propertyNames\": [\r\n                    \"symbol\"\r\n                ],\r\n                \"propertyValues\": [\r\n                    \"ft\"\r\n                ]\r\n            }\r\n        ]\r\n    }\r\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{WELLBORE_DDMS_HOST}}/ddms/v3/wellbores",
+									"host": [
+										"{{WELLBORE_DDMS_HOST}}"
+									],
+									"path": [
+										"ddms",
+										"v3",
+										"wellbores"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "01 get OSDU Wellbore",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response must be valid\", function () {\r",
+											"     pm.response.to.be.ok;\r",
+											"     pm.response.to.be.withBody;\r",
+											"     pm.response.to.be.json;\r",
+											"});\r",
+											"\r",
+											"var lwellboreid = pm.environment.get(\"WellboreRecordID\");\r",
+											"pm.test(\"status code is 200\", function () {\r",
+											"     pm.expect(pm.response.code).to.eql(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check record id\", function () {\r",
+											"     var jsonData = pm.response.json();\r",
+											"     pm.expect(jsonData.id).to.eql(lwellboreid);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "data-partition-id",
+										"type": "text",
+										"value": "{{data_partition}}"
+									}
+								],
+								"url": {
+									"raw": "{{WELLBORE_DDMS_HOST}}/ddms/v3/wellbores/{{wellbore_record_id}}",
+									"host": [
+										"{{WELLBORE_DDMS_HOST}}"
+									],
+									"path": [
+										"ddms",
+										"v3",
+										"wellbores",
+										"{{wellbore_record_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "02 Create OSDU WellLog",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"var dataPartition = pm.environment.get(\"data-partition-id\");\r",
+											"var rand = pm.environment.get(\"WellboreDMSRunId\")\r",
+											"postman.setEnvironmentVariable(\"WellLogID\", dataPartition + \":work-product-component--WellLog:\" + rand);"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response must be valid\", function () {\r",
+											"     pm.response.to.be.ok;\r",
+											"     pm.response.to.be.withBody;\r",
+											"     pm.response.to.be.json;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"status code is 200\", function () {\r",
+											"     pm.expect(pm.response.code).to.eql(200);\r",
+											"     var jsonData = pm.response.json();\r",
+											"     pm.environment.set(\"welllogid\", jsonData.recordIds[0]);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"No records were skipped\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.skippedRecordIds.length).to.equal(0);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "data-partition-id",
+										"type": "text",
+										"value": "{{data_partition}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\r\n    {\r\n        \"acl\": {\r\n            \"viewers\": [\r\n                \"data.default.viewers@{{data_partition}}.dataservices.energy\"\r\n            ],\r\n            \"owners\": [\r\n                \"data.default.owners@{{data_partition}}.dataservices.energy\"\r\n            ]\r\n        },\r\n        \"data\": {\r\n            \"Curves\": [\r\n                {\r\n                    \"CurveID\": \"DEPTH\",\r\n                    \"CurveUnit\": \"opendes:reference-data--UnitOfMeasure:M:\",\r\n                    \"Mnemonic\": \"DEPTH\",\r\n                    \"NumberOfColumns\": 1\r\n                },\r\n                {\r\n                    \"CurveID\": \"BWV\",\r\n                    \"CurveUnit\": \"opendes:reference-data--UnitOfMeasure:UNITLESS:\",\r\n                    \"Mnemonic\": \"BWV\",\r\n                    \"NumberOfColumns\": 1\r\n                },\r\n                {\r\n                    \"CurveID\": \"DT\",\r\n                    \"CurveUnit\": \"opendes:reference-data--UnitOfMeasure:UNITLESS:\",\r\n                    \"Mnemonic\": \"DT\",\r\n                    \"NumberOfColumns\": 1\r\n                },\r\n                {\r\n                    \"CurveID\": \"KLOGH\",\r\n                    \"CurveUnit\": \"opendes:reference-data--UnitOfMeasure:MD:\",\r\n                    \"Mnemonic\": \"KLOGH\",\r\n                    \"NumberOfColumns\": 1\r\n                },\r\n                {\r\n                    \"CurveID\": \"KLOGV\",\r\n                    \"CurveUnit\": \"opendes:reference-data--UnitOfMeasure:MD:\",\r\n                    \"Mnemonic\": \"KLOGV\",\r\n                    \"NumberOfColumns\": 1\r\n                },\r\n                {\r\n                    \"CurveID\": \"PHIF\",\r\n                    \"CurveUnit\": \"opendes:reference-data--UnitOfMeasure:V%2FV:\",\r\n                    \"Mnemonic\": \"PHIF\",\r\n                    \"NumberOfColumns\": 1\r\n                },\r\n                {\r\n                    \"CurveID\": \"SAND_FLAG\",\r\n                    \"CurveUnit\": \"opendes:reference-data--UnitOfMeasure:UNITLESS:\",\r\n                    \"Mnemonic\": \"SAND_FLAG\",\r\n                    \"NumberOfColumns\": 1\r\n                },\r\n                {\r\n                    \"CurveID\": \"SW\",\r\n                    \"CurveUnit\": \"opendes:reference-data--UnitOfMeasure:V%2FV:\",\r\n                    \"Mnemonic\": \"SW\",\r\n                    \"NumberOfColumns\": 1\r\n                },\r\n                {\r\n                    \"CurveID\": \"VSH\",\r\n                    \"CurveUnit\": \"opendes:reference-data--UnitOfMeasure:V%2FV:\",\r\n                    \"Mnemonic\": \"VSH\",\r\n                    \"NumberOfColumns\": 1\r\n                }\r\n            ],\r\n            \"WellboreID\": \"{{wellbore_record_id}}:\",\r\n            \"CreationDateTime\": \"2013-03-22T11:16:03Z\",\r\n            \"VerticalMeasurement\": {\r\n                \"VerticalMeasurement\": 2680.5,\r\n                \"VerticalMeasurementPathID\": \"{{data_partition}}:reference-data--VerticalMeasurementPath:MD:\",\r\n                \"VerticalMeasurementUnitOfMeasureID\": \"{{data_partition}}:reference-data--UnitOfMeasure:ft:\"\r\n            },\r\n            \"TopMeasuredDepth\": 12345.6,\r\n            \"BottomMeasuredDepth\": 13856.25,\r\n            \"Name\": \"Demo Wellbore\",\r\n            \"ExtensionProperties\": {\r\n                \"step\": {\r\n                    \"unitKey\": \"ft\",\r\n                    \"value\": 0.1\r\n                },\r\n                \"dateModified\": \"2013-03-22T11:16:03Z\"\r\n            }\r\n        },\r\n        \"kind\": \"osdu:wks:work-product-component--WellLog:1.2.0\",\r\n        \"legal\": {\r\n            \"legaltags\": [\r\n                \"npequinor-dev-equinor-private-default\"\r\n            ],\r\n            \"otherRelevantDataCountries\": [\r\n                \"US\",\r\n                \"NO\"\r\n            ]\r\n        },\r\n        \"meta\": [\r\n            {\r\n                \"kind\": \"Unit\",\r\n                \"name\": \"ft\",\r\n                \"persistableReference\": \"{\\\"scaleOffset\\\":{\\\"scale\\\":0.3048,\\\"offset\\\":0.0},\\\"symbol\\\":\\\"ft\\\",\\\"baseMeasurement\\\":{\\\"ancestry\\\":\\\"Length\\\",\\\"type\\\":\\\"UM\\\"},\\\"type\\\":\\\"USO\\\"}\",\r\n                \"propertyNames\": [\r\n                    \"stop.value\",\r\n                    \"elevationReference.elevationFromMsl.value\",\r\n                    \"start.value\",\r\n                    \"step.value\",\r\n                    \"reference.unitKey\"\r\n                ],\r\n                \"propertyValues\": [\r\n                    \"ft\"\r\n                ]\r\n            },\r\n            {\r\n                \"kind\": \"DateTime\",\r\n                \"name\": \"datetime\",\r\n                \"persistableReference\": \"{\\\"format\\\":\\\"yyyy-MM-ddTHH:mm:ssZ\\\",\\\"timeZone\\\":\\\"UTC\\\",\\\"type\\\":\\\"DTM\\\"}\",\r\n                \"propertyNames\": [\r\n                    \"dateModified\",\r\n                    \"dateCreated\"\r\n                ]\r\n            }\r\n        ]\r\n    }\r\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{WELLBORE_DDMS_HOST}}/ddms/v3/welllogs",
+									"host": [
+										"{{WELLBORE_DDMS_HOST}}"
+									],
+									"path": [
+										"ddms",
+										"v3",
+										"welllogs"
+									],
+									"query": [
+										{
+											"key": "data-partition-id",
+											"value": "{{data_partition}}",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "03 get OSDU WellLog",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response must be valid\", function () {\r",
+											"     pm.response.to.be.ok;\r",
+											"     pm.response.to.be.withBody;\r",
+											"     pm.response.to.be.json;\r",
+											"});\r",
+											"\r",
+											"var lwelllogid = pm.environment.get(\"WellLogID\");\r",
+											"pm.test(\"status code is 200\", function () {\r",
+											"     pm.expect(pm.response.code).to.eql(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check record id\", function () {\r",
+											"     var jsonData = pm.response.json();\r",
+											"     pm.expect(jsonData.id).to.eql(lwelllogid);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "data-partition-id",
+										"value": "{{data_partition}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{WELLBORE_DDMS_HOST}}/ddms/v3/welllogs/{{welllogid}}",
+									"host": [
+										"{{WELLBORE_DDMS_HOST}}"
+									],
+									"path": [
+										"ddms",
+										"v3",
+										"welllogs",
+										"{{welllogid}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "04 post OSDU WellLog data Copy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response must be valid\", function () {\r",
+											"     pm.response.to.be.ok;\r",
+											"     pm.response.to.be.withBody;\r",
+											"     pm.response.to.be.json;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"status code is 200\", function () {\r",
+											"     pm.expect(pm.response.code).to.eql(200);\r",
+											"     var jsonData = pm.response.json();\r",
+											"     pm.environment.set(\"welllogid\", jsonData.recordIds[0]);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"No records were skipped\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.skippedRecordIds.length).to.equal(0);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"content-type": true
+								}
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "data-partition-id",
+										"type": "text",
+										"value": "{{data_partition}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/x-parquet",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "file",
+									"file": {
+										"src": "/Users/QIF/GitWorkspaces/OSDUBootcamp/Labs/Module 5 - Working with the Wellbore DDMS/data/sample.parquet"
+									}
+								},
+								"url": {
+									"raw": "{{WELLBORE_DDMS_HOST}}/ddms/v3/welllogs/{{welllogid}}/data",
+									"host": [
+										"{{WELLBORE_DDMS_HOST}}"
+									],
+									"path": [
+										"ddms",
+										"v3",
+										"welllogs",
+										"{{welllogid}}",
+										"data"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "05 get OSDU WellLog data Copy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response must be valid\", function () {\r",
+											"     pm.response.to.be.ok;\r",
+											"     pm.response.to.be.withBody;\r",
+											"     pm.response.to.be.json;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"status code is 200\", function () {\r",
+											"     pm.expect(pm.response.code).to.eql(200);\r",
+											"});\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "data-partition-id",
+										"value": "{{data_partition}}",
+										"type": "text"
+									},
+									{
+										"key": "offset",
+										"value": "0",
+										"type": "integer"
+									},
+									{
+										"key": "limit",
+										"value": "100",
+										"type": "integer"
+									},
+									{
+										"key": "curves",
+										"value": "",
+										"type": "text"
+									},
+									{
+										"key": "describe",
+										"value": "false",
+										"type": "boolean"
+									},
+									{
+										"key": "orient",
+										"value": "split",
+										"type": "text"
+									},
+									{
+										"key": "accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{WELLBORE_DDMS_HOST}}/ddms/v3/welllogs/{{welllogid}}/data",
+									"host": [
+										"{{WELLBORE_DDMS_HOST}}"
+									],
+									"path": [
+										"ddms",
+										"v3",
+										"welllogs",
+										"{{welllogid}}",
+										"data"
+									]
+								}
+							},
+							"response": []
 						}
 					]
 				}
