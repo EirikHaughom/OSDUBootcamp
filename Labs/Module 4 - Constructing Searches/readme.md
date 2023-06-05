@@ -44,12 +44,10 @@ The below example shows how to search for all records of multiple kinds. In this
 ### 4.1.4 Search by specific record ID
 The below example shows how to search for a specific record by its ID. In this case, we are searching for the record with ID `contoso-opendes:master-data--Well:7018`.
 
-> Note: Replace contoso-opendes with the data partition name for the OSDU Bootcamp data partition.
-
 ```json
 {
   "kind": "*:*:*:*",
-  "query": "id:\"contoso-opendes:master-data--Well:7018\""
+  "query": "id:\"{{data_partition}}:master-data--Well:7018\""
 }
 ```
 
@@ -199,7 +197,7 @@ Using the same structure, construct a search for the kind `osdu:wks:master-data-
 }
 ```
   
-</details>
+</details><br><br>
 
 ### 4.1.9 AND operator
 The below example shows how to construct a query to search for all records of kind `osdu:wks:master-data--Wellbore:1.0.0` that has a `FacilityName` property that contains the word `D12-01` under the data section, and has a `DefaultVerticalMeasurementID` property that contains the word `RotaryTable` under the data section.
