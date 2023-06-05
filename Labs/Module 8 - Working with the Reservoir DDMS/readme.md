@@ -20,7 +20,7 @@ In this lab we will use the following Postman folder: `Bootcamp > Lab Module 8 -
 
 ### Discover and retrieve data loaded in the Reservoir DDMS using REST API: jupyter notebook
 
-Download and launch the [jupyter notebook:](RDDMS_2dgrid.ipynb). Explore how resources are accessed, referenced, and the array content is vizualised.
+Download and launch the [jupyter notebook:](RDDMS_2dgrid.ipynb). Explore how resources are accessed, referenced, and the array content is visualized.
 
 ### Demo only: Use openETP client to export a RESQML epc file container with various Volve model data
 
