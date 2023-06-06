@@ -62,7 +62,7 @@ While it is often useful to return all fields in a record, sometimes it is usefu
   "returnedFields": [ 
     "id", 
     "kind",
-    "data.FacilityName"
+    "acl"
     ]
 }
 ```
