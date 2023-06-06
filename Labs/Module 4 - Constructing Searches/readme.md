@@ -52,7 +52,7 @@ The below example shows how to search for a specific record by its ID. In this c
 ```
 
 ### 4.1.5 Limiting returned content
-While it is often useful to return all fields in a record, sometimes it is useful to limit the fields returned. The below example shows how to construct a query to search any record of any kind, but only return the `id`, `kind` and `data.FacilityName` fields.
+While it is often useful to return all fields in a record, sometimes it is useful to limit the fields returned. The below example shows how to construct a query to search any record of any kind, but only return the `id`, `kind` and `acl` fields.
 
 ```json
 {
