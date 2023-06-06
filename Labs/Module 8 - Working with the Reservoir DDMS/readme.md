@@ -8,6 +8,7 @@ In this lab you will explore fundamental capabilities and characteristics of the
 ## Reservoir DDMS REST API - exploring the API and consume data 
 ### Discover and retrieve data loaded in the Reservoir DDMS using REST API: postman 
 In this lab we will use the following Postman folder: `Bootcamp > Lab Module 8 - Working with the Reservoir DDMS`
+You can find more resources, openAPI & Swagger json at the [Reservoir DDMS landing page](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/reservoir/home)
 
 1. `Get Data Spaces List`. Currently there is one. 
 2. `Get Resources List` List all resources contained in a data space. In our example, we have a Grid2d regular surface represetation of a HorizonInterpretation of a GeneticBoundary Feature, a CRS definition and a reference to the grid data array.
