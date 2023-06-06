@@ -9,12 +9,13 @@ OSDU uses Oauth 2.0 for authentication. In this section you will learn how to au
 
 ### 1.1 OSDU CLI
 1. Download the config file you received by email and save it to `C:/Users/\<username\>/.osducli` (Windows) or `/users/<username>/.osducli/` (Linux/MacOS).
-2. Open a terminal and run the following command to authenticate towards OSDU:
+2. Run the following command `osdu config default` and point to the path of the config file, i.e. `C:/Users/\<username\>/.osducli/bootcamp`
+3. Open a terminal and run the following command to authenticate towards OSDU:
     ```bash
     osdu status
     ```
-3. Perform the interactive authentication in your browser.    
-4. OSDU CLI will now attempt a connection towards all the Core APIs. You should see the following output:
+4. Perform the interactive authentication in your browser.    
+5. OSDU CLI will now attempt a connection towards all the Core APIs. You should see the following output:
     ```bash
     CRS Catalog service     200         OK
     CRS Converter service   200         OK
@@ -27,11 +28,11 @@ OSDU uses Oauth 2.0 for authentication. In this section you will learn how to au
     Unit service            200         OK
     Workflow service        200         OK
     ```
-5. Run the following command to review the configuration:
+6. Run the following command to review the configuration:
     ```bash
     osdu config list
     ```
-6. Run the following command to list out your group assignment:
+7. Run the following command to list out your group assignment:
     ```bash
     osdu entitlements mygroups
     ```
@@ -39,16 +40,15 @@ OSDU uses Oauth 2.0 for authentication. In this section you will learn how to au
 ### 1.2 Postman (Personal token)
 Ensure that you have installed the prerequisites listed in the [main readme](/README.md#preparations).
 
-1. Open Postman and go to `Environments` and select the `OSDU Bootcamp` environment.
-2. Configure it using the details from the OSDU CLI (`osdu config list`).
-3. Go to `Collections` and select the `ADME (OSDU Bootcamp)` collection (root folder).
-4. Select the `Authorization` tab and click `Get New Access Token`.
-5. Perform the interactive authentication in your browser. Ensure that the token creation is successful.
-6. Click `Use Token` to add the token to your Postman.
-7. Copy the token into into notepad or similar and store it for later use.
-8. Run the following request to make sure the token is valid: `Entitlements > (GET) listGroups` and click *SEND*.
-9. Compare the response with the output from the OSDU CLI (`osdu entitlements mygroups`).
-10. Copy the token into a notepad and store it for later use.
+1. Open Postman and go to `Environments` and select the `OSDU Bootcamp` environment. This should have been provided to you by email.
+2. Go to `Collections` and select the `ADME (OSDU Bootcamp)` collection (root folder).
+3. Select the `Authorization` tab and click `Get New Access Token`.
+4. Perform the interactive authentication in your browser. Ensure that the token creation is successful.
+5. Click `Use Token` to add the token to your Postman.
+6. Copy the token into into notepad or similar and store it for later use.
+7. Run the following request to make sure the token is valid: `Entitlements > (GET) listGroups` and click *SEND*.
+8. Compare the response with the output from the OSDU CLI (`osdu entitlements mygroups`).
+9. Copy the token into a notepad and store it for later use.
 
 ### 1.3 Manual authentication as an App Registration (Service Principal)
 This authentication mechanism is mainly used to integrate external applications programmatically into OSDU. We will use an example App Registration (client id and client secret) to authenticate towards OSDU.
