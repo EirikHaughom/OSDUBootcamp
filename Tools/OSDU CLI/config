@@ -1,0 +1,21 @@
+[core]
+server = <address-where-osdu-services-are-running> #e.g. https://adme.azure-int.net
+crs_catalog_url = /api/crs/catalog/v2/
+crs_converter_url = /api/crs/converter/v2/
+entitlements_url = /api/entitlements/v2/
+file_url = /api/file/v2/
+legal_url = /api/legal/v1/
+schema_url = /api/schema-service/v1/
+search_url = /api/search/v2/
+storage_url = /api/storage/v2/
+unit_url = /api/unit/v3/
+workflow_url = /api/workflow/v1/
+data_partition_id = <your data partition>
+legal_tag = <legal-tag-name> 
+acl_viewer = <group email for viewers> #e.g. data.default.viewers@opendes.contoso.com
+acl_owner = <group email for viewers> #e.g. data.default.owners@opendes.contoso.com
+authentication_mode = <refresh_token>
+token_endpoint = https://login.microsoftonline.com/<tenant-id>/oauth2/v2.0/token
+refresh_token = <refresh-token>
+client_id = <client-id>
+client_secret = <client-secret>

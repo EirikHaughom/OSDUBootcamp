@@ -40,7 +40,7 @@ Important: After setting a initial admin the client secret should be deleted fro
 
 ### Setup OSDU CLI
 
-The [OSDU CLI](https://community.opengroup.org/osdu/platform/data-flow/data-loading/osdu-cli) is used for the following setup so should be installed and set up to target the correct environment. Environment configurations can be found [here](../Labs/Module%201%20-%20Authentication%20and%20authorization/config). Copy this file to the .osducli folder in your home directory and then use the below command to seclect the correct one to use:
+The [OSDU CLI](https://community.opengroup.org/osdu/platform/data-flow/data-loading/osdu-cli) is used for the following setup so should be installed and set up to target the correct environment. A sample requiring to input correct values for environment configurations can be found [here](../Tools/OSDU%20CLI/config). Copy this file to the .osducli folder in your home directory and then use the below command to select the correct one to use:
 ```
 osdu config default 
 ```
