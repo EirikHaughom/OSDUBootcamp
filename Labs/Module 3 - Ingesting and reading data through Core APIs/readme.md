@@ -11,7 +11,7 @@ Before beginning this tutorial, the following prerequisites must be completed:
 - We need to Import the sample Postman Collection & the Postman Environment files. 
 - Then, we need to update the CURRENT_VALUE of the postman environment variables.
 - Next step is to get the authentication token to be able to send the API calls from the imported postman collection.
-- Follow the instructions at: [Postman Setup](../../Tools/Postman%20Collection/readme.md) untill #5 under *Authenticating* - *Interactive* - *User Token*
+- Follow the instructions at: [Postman Setup](../../Tools/Postman%20Collection/readme.md) until #5 under *Authenticating* - *Interactive* - *User Token*
 
 
 ## 3.1 File/Storage Service: Manual ingestion

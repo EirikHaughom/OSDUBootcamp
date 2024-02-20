@@ -18,7 +18,7 @@ First let us check which parameters we need for creating a group:
 
     osdu entitlements groups add -h
 
-We need a group name and a description. For name just use your shortname (or some similar easy to remembe name). For description be as creative as you want. The help text also reminds us that the name is \[required\], meaning description is optional.
+We need a group name and a description. For name just use your shortname (or some similar easy to remember name). For description be as creative as you want. The help text also reminds us that the name is \[required\], meaning description is optional.
 
     osdu entitlements groups add -g jmor -d "My fancy description"
 

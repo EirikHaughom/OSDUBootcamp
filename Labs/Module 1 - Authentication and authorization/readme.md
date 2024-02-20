@@ -8,7 +8,9 @@ This module will cover the following topics:
 OSDU uses Oauth 2.0 for authentication. In this section you will learn how to authenticate towards OSDU using Oauth 2.0 using OSDU CLI and Postman.
 
 ### 1.1 OSDU CLI
-1. Download the config file you received by email and save it to `C:/Users/\<username\>/.osducli` (Windows) or `/users/<username>/.osducli/` (Linux/MacOS).
+1. Download the [sample config file](../../Tools/OSDU%20CLI/config). Input values need to be replaced. Information about how to obtain the refresh token
+ can be found in the [Microsoft documentation](https://learn.microsoft.com/azure/energy-data-services/how-to-generate-auth-token#generate-the-user-auth-token).
+
 2. Run the following command `osdu config default` and point to the path of the config file, i.e. `C:/Users/\<username\>/.osducli/bootcamp`
 3. Open a terminal and run the following command to authenticate towards OSDU:
     ```bash
@@ -41,6 +43,7 @@ OSDU uses Oauth 2.0 for authentication. In this section you will learn how to au
 Ensure that you have installed the prerequisites listed in the [main readme](/README.md#preparations).
 
 1. Open Postman and go to `Environments` and select the `OSDU Bootcamp` environment. This should have been provided to you by email.
+[A sample](../../Tools/Postman%20Collection/ADME.postman_environment.json) is also included in the tools, requiring the input of values.
 2. Go to `Collections` and select the `ADME (OSDU Bootcamp)` collection (root folder).
 3. Select the `Authorization` tab and click `Get New Access Token`.
 4. Perform the interactive authentication in your browser. Ensure that the token creation is successful.
