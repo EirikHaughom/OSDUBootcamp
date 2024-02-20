@@ -1,5 +1,5 @@
 [core]
-server = <address-where-osdu-services-are-running> #e.g. https://adme.azure-int.net
+server = <address-where-osdu-services-are-running> #e.g. https://contoso.energy.azure.com
 crs_catalog_url = /api/crs/catalog/v2/
 crs_converter_url = /api/crs/converter/v2/
 entitlements_url = /api/entitlements/v2/
@@ -12,8 +12,8 @@ unit_url = /api/unit/v3/
 workflow_url = /api/workflow/v1/
 data_partition_id = <your data partition>
 legal_tag = <legal-tag-name> 
-acl_viewer = <group email for viewers> #e.g. data.default.viewers@opendes.contoso.com
-acl_owner = <group email for viewers> #e.g. data.default.owners@opendes.contoso.com
+acl_viewer = <group email for viewers> #e.g. data.default.viewers@opendes.dataservices.energy
+acl_owner = <group email for viewers> #e.g. data.default.owners@opendes.dataservices.energy
 authentication_mode = <refresh_token>
 token_endpoint = https://login.microsoftonline.com/<tenant-id>/oauth2/v2.0/token
 refresh_token = <refresh-token>
