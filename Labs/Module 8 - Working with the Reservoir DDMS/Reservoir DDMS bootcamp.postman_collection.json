@@ -1,0 +1,1546 @@
+{
+	"info": {
+		"_postman_id": "c8a90373-f404-442a-9397-2bb9eaffe327",
+		"name": "Reservoir DDMS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12441416",
+		"_collection_link": "https://solar-desert-942617.postman.co/workspace/New-Team-Workspace~dd4c80bc-088d-4420-9885-a8f4ddb5080d/collection/12441416-c8a90373-f404-442a-9397-2bb9eaffe327?action=share&source=collection_link&creator=12441416"
+	},
+	"item": [
+		{
+			"name": "1. Get Data Spaces List",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"response must be valid\", function () {\r",
+							"     pm.response.to.be.ok;\r",
+							"     pm.response.to.be.withBody;\r",
+							"     pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"status code is 200\", function () {\r",
+							"     pm.expect(pm.response.code).to.eql(200);\r",
+							"});\r",
+							"\r",
+							"pm.test('Number of data spaces: ' + pm.response.json().length, function () {\r",
+							"    pm.expect(Object.keys(pm.response.json()).length).to.be.greaterThan(0);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Demo dataspace is created\", function () {\r",
+							"    const response = pm.response.json();\r",
+							"    const dataspace = response.find(item => item.path === \"demo/Volve\");\r",
+							"    pm.expect(dataspace.path).to.eql(\"demo/Volve\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": [
+						{
+							"key": "secret",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImZvbyIsInBhc3N3b3JkIjoiYmFyIn0.B2aynBmcpX9POj6ZkDU5nqjVaRf8nWsXTE0ozuq4xFg",
+							"type": "string"
+						},
+						{
+							"key": "algorithm",
+							"value": "HS256",
+							"type": "string"
+						},
+						{
+							"key": "isSecretBase64Encoded",
+							"value": false,
+							"type": "boolean"
+						},
+						{
+							"key": "payload",
+							"value": "{}",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer",
+							"type": "string"
+						},
+						{
+							"key": "queryParamKey",
+							"value": "token",
+							"type": "string"
+						},
+						{
+							"key": "header",
+							"value": "{}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{access_token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{RESERVOIR_DDMS_HOST}}dataspaces",
+					"host": [
+						"{{RESERVOIR_DDMS_HOST}}dataspaces"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "1. Get Data Spaces List",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "data-partition-id",
+								"value": "{{data-partition-id}}",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{RESERVOIR_DDMS_HOST}}dataspaces",
+							"host": [
+								"{{RESERVOIR_DDMS_HOST}}dataspaces"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "620"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"26c-Gq6HueCURL+vblqlPV4drFutrs4\""
+						},
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Resource-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Origin-Agent-Cluster",
+							"value": "?1"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 11 Mar 2024 12:03:02 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"uri\": \"eml:///dataspace('demo/Volve')\",\n        \"path\": \"demo/Volve\",\n        \"storeLastWrite\": \"2024-01-09T08:20:53.648Z\",\n        \"storeCreated\": \"2024-01-09T08:20:53.648Z\",\n        \"customData\": {\n            \"read-only\": \"false\",\n            \"size\": \"232 kB\"\n        }\n    },\n    {\n        \"uri\": \"eml:///dataspace('d4f377ec-43c3-43ba-9012-96b63df2d71e')\",\n        \"path\": \"demo/jos\",\n        \"storeLastWrite\": \"2024-02-06T09:44:12.556Z\",\n        \"storeCreated\": \"2024-02-05T12:33:09.278Z\",\n        \"customData\": {\n            \"read-only\": \"false\",\n            \"size\": \"48 MB\"\n        }\n    },\n    {\n        \"uri\": \"eml:///dataspace('demo/volve2')\",\n        \"path\": \"demo/volve2\",\n        \"storeLastWrite\": \"2024-01-12T07:32:06.085Z\",\n        \"storeCreated\": \"2024-01-12T07:32:06.085Z\",\n        \"customData\": {\n            \"read-only\": \"false\",\n            \"size\": \"232 kB\"\n        }\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "2. Get Resources List",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"response must be valid\", function () {\r",
+							"     pm.response.to.be.ok;\r",
+							"     pm.response.to.be.withBody;\r",
+							"     pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"status code is 200\", function () {\r",
+							"     pm.expect(pm.response.code).to.eql(200);\r",
+							"});\r",
+							"\r",
+							"pm.test('Number of resources names: ' + pm.response.json().length, function () {\r",
+							"    pm.expect(Object.keys(pm.response.json()).length).to.be.greaterThan(0);\r",
+							"    //var name = pm.response.json()[3].name;\r",
+							"    //pm.environment.set(\"DATA_OBJECT_TYPE\", name)\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Resources are imported\", function () {\r",
+							"    const response = pm.response.json();\r",
+							"    const resource = response.find(item => item.name === \"resqml20.obj_TriangulatedSetRepresentation\");\r",
+							"    pm.expect(resource.count).to.greaterThan(0)\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{access_token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{RESERVOIR_DDMS_HOST}}dataspaces/{{DATASPACE_ID}}/resources",
+					"host": [
+						"{{RESERVOIR_DDMS_HOST}}dataspaces"
+					],
+					"path": [
+						"{{DATASPACE_ID}}",
+						"resources"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "2. Get Resources List",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							},
+							{
+								"key": "data-partition-id",
+								"value": "{{data-partition-id}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{RESERVOIR_DDMS_HOST}}dataspaces/{{DATASPACE_ID}}/resources",
+							"host": [
+								"{{RESERVOIR_DDMS_HOST}}dataspaces"
+							],
+							"path": [
+								"{{DATASPACE_ID}}",
+								"resources"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "219"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"db-3JZk6VzM9R7N14Pume5TZBPMh5o\""
+						},
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Resource-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Origin-Agent-Cluster",
+							"value": "?1"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 11 Mar 2024 12:03:10 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"name\": \"resqml20.obj_GeneticBoundaryFeature\",\n        \"count\": 3\n    },\n    {\n        \"name\": \"resqml20.obj_Grid2dRepresentation\",\n        \"count\": 7\n    },\n    {\n        \"name\": \"resqml20.obj_HorizonInterpretation\",\n        \"count\": 3\n    },\n    {\n        \"name\": \"resqml20.obj_LocalDepth3dCrs\",\n        \"count\": 2\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "3. Get All Resources",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"response must be valid\", function () {\r",
+							"     pm.response.to.be.ok;\r",
+							"     pm.response.to.be.withBody;\r",
+							"     pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"status code is 200\", function () {\r",
+							"     pm.expect(pm.response.code).to.eql(200);\r",
+							"});\r",
+							"\r",
+							"pm.test('Number of resources: ' + pm.response.json().length, function () {\r",
+							"    pm.expect(Object.keys(pm.response.json()).length).to.be.greaterThan(0);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{access_token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{RESERVOIR_DDMS_HOST}}/dataspaces/{{DATASPACE_ID}}/resources/all",
+					"host": [
+						"{{RESERVOIR_DDMS_HOST}}"
+					],
+					"path": [
+						"dataspaces",
+						"{{DATASPACE_ID}}",
+						"resources",
+						"all"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "3. Get All Resources",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							},
+							{
+								"key": "data-partition-id",
+								"value": "{{data-partition-id}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{RESERVOIR_DDMS_HOST}}/dataspaces/{{DATASPACE_ID}}/resources/all",
+							"host": [
+								"{{RESERVOIR_DDMS_HOST}}"
+							],
+							"path": [
+								"dataspaces",
+								"{{DATASPACE_ID}}",
+								"resources",
+								"all"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "2351"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"92f-dSVPPkEWXtdAnwSuKN0QuuQJvl0\""
+						},
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+						},
+						{
+							"key": "Cross-Origin-Embedder-Policy",
+							"value": "require-corp"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Resource-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Origin-Agent-Cluster",
+							"value": "?1"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 23 Nov 2023 10:30:54 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"uri\": \"eml:///dataspace('demo/jos')/eml20.obj_EpcExternalPartReference(5e9d1473-d36a-492e-a7b1-a9cb09b37bca)\",\n        \"alternateUris\": [],\n        \"name\": \"/private/maap/tmp/js4d/js4d3surf.h5\",\n        \"lastChanged\": \"2023-11-15T11:41:47.000Z\",\n        \"storeLastWrite\": \"2023-11-15T10:48:19.358Z\",\n        \"storeCreated\": \"2023-11-15T10:48:19.358Z\",\n        \"activeStatus\": \"Active\",\n        \"customData\": {}\n    },\n    {\n        \"uri\": \"eml:///dataspace('demo/jos')/resqml20.obj_GeneticBoundaryFeature(5ef6c519-1587-4215-be0e-61300574c530)\",\n        \"alternateUris\": [],\n        \"name\": \"AasgardFmTop-10s\",\n        \"lastChanged\": \"2023-11-08T10:13:00.000Z\",\n        \"storeLastWrite\": \"2023-11-15T10:48:19.358Z\",\n        \"storeCreated\": \"2023-11-15T10:48:19.358Z\",\n        \"activeStatus\": \"Active\",\n        \"customData\": {}\n    },\n    {\n        \"uri\": \"eml:///dataspace('demo/jos')/resqml20.obj_Grid2dRepresentation(11eab5c2-d65f-48f7-815c-60400bebc312)\",\n        \"alternateUris\": [],\n        \"name\": \"FulRes_20au-19auM_Diff_0535_maxn_Surface\",\n        \"lastChanged\": \"2023-11-08T10:13:00.000Z\",\n        \"storeLastWrite\": \"2023-11-15T10:48:19.358Z\",\n        \"storeCreated\": \"2023-11-15T10:48:19.358Z\",\n        \"activeStatus\": \"Active\",\n        \"customData\": {}\n    },\n    {\n        \"uri\": \"eml:///dataspace('demo/jos')/resqml20.obj_Grid2dRepresentation(38298351-a654-4622-af60-e12fed35245a)\",\n        \"alternateUris\": [],\n        \"name\": \"FulRes_23sp-20au_TS_0535_IUTU-10ms_Surface\",\n        \"lastChanged\": \"2023-11-08T10:13:00.000Z\",\n        \"storeLastWrite\": \"2023-11-15T10:48:19.358Z\",\n        \"storeCreated\": \"2023-11-15T10:48:19.358Z\",\n        \"activeStatus\": \"Active\",\n        \"customData\": {}\n    },\n    {\n        \"uri\": \"eml:///dataspace('demo/jos')/resqml20.obj_Grid2dRepresentation(fb19920b-3a4f-478e-b28e-003537b88180)\",\n        \"alternateUris\": [],\n        \"name\": \"FulRes_21sp-20au_dTS_0535_maxp_Surface\",\n        \"lastChanged\": \"2023-11-08T10:13:00.000Z\",\n        \"storeLastWrite\": \"2023-11-15T10:48:19.358Z\",\n        \"storeCreated\": \"2023-11-15T10:48:19.358Z\",\n        \"activeStatus\": \"Active\",\n        \"customData\": {}\n    },\n    {\n        \"uri\": \"eml:///dataspace('demo/jos')/resqml20.obj_HorizonInterpretation(53e765da-21de-4c94-957c-8778b373a824)\",\n        \"alternateUris\": [],\n        \"name\": \"AasgardFmTop-10s\",\n        \"lastChanged\": \"2023-11-08T10:13:00.000Z\",\n        \"storeLastWrite\": \"2023-11-15T10:48:19.358Z\",\n        \"storeCreated\": \"2023-11-15T10:48:19.358Z\",\n        \"activeStatus\": \"Active\",\n        \"customData\": {}\n    },\n    {\n        \"uri\": \"eml:///dataspace('demo/jos')/resqml20.obj_LocalDepth3dCrs(184615c5-9730-4f5a-99a8-8891c8acdaf0)\",\n        \"alternateUris\": [],\n        \"name\": \"Local Depth CRS\",\n        \"lastChanged\": \"2023-11-08T10:13:00.000Z\",\n        \"storeLastWrite\": \"2023-11-15T10:48:19.358Z\",\n        \"storeCreated\": \"2023-11-15T10:48:19.358Z\",\n        \"activeStatus\": \"Active\",\n        \"customData\": {}\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "4. Get Data Object Type",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"response must be valid\", function () {\r",
+							"     pm.response.to.be.ok;\r",
+							"     pm.response.to.be.withBody;\r",
+							"     pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"status code is 200\", function () {\r",
+							"     pm.expect(pm.response.code).to.eql(200);\r",
+							"});\r",
+							"\r",
+							"pm.test('Number of data object types: ' + pm.response.json().length, function () {\r",
+							"    pm.expect(Object.keys(pm.response.json()).length).to.be.greaterThan(0);\r",
+							"    var uri = pm.response.json()[0].uri;\r",
+							"    var path = uri.split('(')[2].slice(0,-1);\r",
+							"    pm.collectionVariables.set(\"DATA_OBJECT_TYPE_GUID\", path)\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{access_token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{RESERVOIR_DDMS_HOST}}dataspaces/{{DATASPACE_ID}}/resources/{{DATA_OBJECT_TYPE}}",
+					"host": [
+						"{{RESERVOIR_DDMS_HOST}}dataspaces"
+					],
+					"path": [
+						"{{DATASPACE_ID}}",
+						"resources",
+						"{{DATA_OBJECT_TYPE}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "4. Get Data Object Type",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							},
+							{
+								"key": "data-partition-id",
+								"value": "{{data-partition-id}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{RESERVOIR_DDMS_HOST}}dataspaces/{{DATASPACE_ID}}/resources/{{DATA_OBJECT_TYPE}}",
+							"host": [
+								"{{RESERVOIR_DDMS_HOST}}dataspaces"
+							],
+							"path": [
+								"{{DATASPACE_ID}}",
+								"resources",
+								"{{DATA_OBJECT_TYPE}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "2740"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"ab4-pyEq861Wn+alsHdrF5BdfjWlmvI\""
+						},
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Resource-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Origin-Agent-Cluster",
+							"value": "?1"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 11 Mar 2024 10:00:20 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"uri\": \"eml:///dataspace('d4f377ec-43c3-43ba-9012-96b63df2d71e')/resqml20.obj_Grid2dRepresentation(26773ea0-1157-4ea9-bd87-a6843359323c)\",\n        \"alternateUris\": [],\n        \"name\": \"FulRes_23sp-20au_TS_0535_IUTU-10ms_Surface\",\n        \"lastChanged\": \"2023-12-01T10:34:00.000Z\",\n        \"storeLastWrite\": \"2024-02-05T12:33:57.950Z\",\n        \"storeCreated\": \"2024-02-05T12:33:57.950Z\",\n        \"activeStatus\": \"Active\",\n        \"customData\": {\n            \"creator\": \"maap\"\n        }\n    },\n    {\n        \"uri\": \"eml:///dataspace('d4f377ec-43c3-43ba-9012-96b63df2d71e')/resqml20.obj_Grid2dRepresentation(8ee42099-af89-4e44-a3df-a62324b38f15)\",\n        \"alternateUris\": [],\n        \"name\": \"FulRes_21sp-20au_dTS_0535_maxp_Surface\",\n        \"lastChanged\": \"2023-12-01T10:34:00.000Z\",\n        \"storeLastWrite\": \"2024-02-05T12:33:57.950Z\",\n        \"storeCreated\": \"2024-02-05T12:33:57.950Z\",\n        \"activeStatus\": \"Active\",\n        \"customData\": {\n            \"creator\": \"maap\"\n        }\n    },\n    {\n        \"uri\": \"eml:///dataspace('d4f377ec-43c3-43ba-9012-96b63df2d71e')/resqml20.obj_Grid2dRepresentation(9149acfa-e7be-423d-b3e6-10a1660cc670)\",\n        \"alternateUris\": [],\n        \"name\": \"FulRes_21sp-20au_dTS_0535_maxp_Surface\",\n        \"lastChanged\": \"2023-12-01T10:34:00.000Z\",\n        \"storeLastWrite\": \"2024-02-05T12:33:57.950Z\",\n        \"storeCreated\": \"2024-02-05T12:33:57.950Z\",\n        \"activeStatus\": \"Active\",\n        \"customData\": {\n            \"creator\": \"maap\"\n        }\n    },\n    {\n        \"uri\": \"eml:///dataspace('d4f377ec-43c3-43ba-9012-96b63df2d71e')/resqml20.obj_Grid2dRepresentation(c1ca37df-99b5-4f40-9512-930509c7d53b)\",\n        \"alternateUris\": [],\n        \"name\": \"FulRes_23sp-20au_TS_0535_IUTU-10ms_Surface\",\n        \"lastChanged\": \"2023-12-01T10:34:00.000Z\",\n        \"storeLastWrite\": \"2024-02-05T12:33:57.950Z\",\n        \"storeCreated\": \"2024-02-05T12:33:57.950Z\",\n        \"activeStatus\": \"Active\",\n        \"customData\": {\n            \"creator\": \"maap\"\n        }\n    },\n    {\n        \"uri\": \"eml:///dataspace('d4f377ec-43c3-43ba-9012-96b63df2d71e')/resqml20.obj_Grid2dRepresentation(c1cd7056-19b8-4cd8-9fe6-2433965686eb)\",\n        \"alternateUris\": [],\n        \"name\": \"FulRes_20au-19auM_Diff_0535_maxn_Surface\",\n        \"lastChanged\": \"2023-12-01T10:34:00.000Z\",\n        \"storeLastWrite\": \"2024-02-05T12:33:57.950Z\",\n        \"storeCreated\": \"2024-02-05T12:33:57.950Z\",\n        \"activeStatus\": \"Active\",\n        \"customData\": {\n            \"creator\": \"maap\"\n        }\n    },\n    {\n        \"uri\": \"eml:///dataspace('d4f377ec-43c3-43ba-9012-96b63df2d71e')/resqml20.obj_Grid2dRepresentation(d7f3c95e-4af5-423d-8ccb-41f243115476)\",\n        \"alternateUris\": [],\n        \"name\": \"FulRes_20au-19auM_Diff_0535_maxn_Surface\",\n        \"lastChanged\": \"2023-12-01T10:34:00.000Z\",\n        \"storeLastWrite\": \"2024-02-05T12:33:57.950Z\",\n        \"storeCreated\": \"2024-02-05T12:33:57.950Z\",\n        \"activeStatus\": \"Active\",\n        \"customData\": {\n            \"creator\": \"maap\"\n        }\n    },\n    {\n        \"uri\": \"eml:///dataspace('d4f377ec-43c3-43ba-9012-96b63df2d71e')/resqml20.obj_Grid2dRepresentation(dbeaba1c-4e97-4056-87cb-e1fefa750539)\",\n        \"alternateUris\": [],\n        \"name\": \"FulRes_23sp-20au_TS_0535_IUTU-10ms_Surface\",\n        \"lastChanged\": \"2024-02-06T09:35:00.000Z\",\n        \"storeLastWrite\": \"2024-02-06T09:44:12.556Z\",\n        \"storeCreated\": \"2024-02-06T09:44:12.556Z\",\n        \"activeStatus\": \"Active\",\n        \"customData\": {\n            \"creator\": \"maap\"\n        }\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "5. Get Data Object Content",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"response must be valid\", function () {\r",
+							"     pm.response.to.be.ok;\r",
+							"     pm.response.to.be.withBody;\r",
+							"     pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"status code is 200\", function () {\r",
+							"     pm.expect(pm.response.code).to.eql(200);\r",
+							"});\r",
+							"\r",
+							"pm.test('Data object content is available', function () {\r",
+							"    pm.expect(Object.keys(pm.response.json()).length).to.eql(1);\r",
+							"    /*var path = pm.response.json()[0].TrianglePatch[0].Triangles.Values.PathInHdfFile;\r",
+							"    console.log(path);\r",
+							"    var pathEscaped = path.replaceAll('/','%2F');\r",
+							"    pm.environment.set(\"RDDMS_PATH_IN_RESOURCE\", pathEscaped)*/\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{access_token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{RESERVOIR_DDMS_HOST}}/dataspaces/{{DATASPACE_ID}}/resources/{{DATA_OBJECT_TYPE}}/{{DATA_OBJECT_TYPE_GUID}}",
+					"host": [
+						"{{RESERVOIR_DDMS_HOST}}"
+					],
+					"path": [
+						"dataspaces",
+						"{{DATASPACE_ID}}",
+						"resources",
+						"{{DATA_OBJECT_TYPE}}",
+						"{{DATA_OBJECT_TYPE_GUID}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "5. Get Data Object Content",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							},
+							{
+								"key": "data-partition-id",
+								"value": "{{data-partition-id}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{RESERVOIR_DDMS_HOST}}/dataspaces/{{DATASPACE_ID}}/resources/{{DATA_OBJECT_TYPE}}/{{DATA_OBJECT_TYPE_GUID}}",
+							"host": [
+								"{{RESERVOIR_DDMS_HOST}}"
+							],
+							"path": [
+								"dataspaces",
+								"{{DATASPACE_ID}}",
+								"resources",
+								"{{DATA_OBJECT_TYPE}}",
+								"{{DATA_OBJECT_TYPE_GUID}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "5774"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"168e-/XyE53Qj1fiVNubpkUMfhr+JUn0\""
+						},
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+						},
+						{
+							"key": "Cross-Origin-Embedder-Policy",
+							"value": "require-corp"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Resource-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Origin-Agent-Cluster",
+							"value": "?1"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 23 Nov 2023 10:33:46 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"SchemaVersion\": \"2.0\",\n        \"Uuid\": \"11eab5c2-d65f-48f7-815c-60400bebc312\",\n        \"Citation\": {\n            \"Title\": \"FulRes_20au-19auM_Diff_0535_maxn_Surface\",\n            \"Originator\": \"maap\",\n            \"Creation\": \"2023-11-08T10:13:00.000Z\",\n            \"Format\": \"Aspen RMS\",\n            \"$type\": \"eml20.Citation\"\n        },\n        \"ExtraMetadata\": [\n            {\n                \"Name\": \"OW Horizon name\",\n                \"Value\": \"4D_JS_FulRes_20au-19auM_Diff_0535_maxn\",\n                \"$type\": \"resqml20.NameValuePair\"\n            },\n            {\n                \"Name\": \"OW Top Horizon\",\n                \"Value\": \"3D+TAasgard+JS+Z22+Merge_EQ20231_PH2DG3\",\n                \"$type\": \"resqml20.NameValuePair\"\n            },\n            {\n                \"Name\": \"OW Base Horizon\",\n                \"Value\": \"3D+IUTU+JS+Z22+Merge_EQ20231_PH2DG3\",\n                \"$type\": \"resqml20.NameValuePair\"\n            },\n            {\n                \"Name\": \"Monitor reference date\",\n                \"Value\": \"01.10.2020\",\n                \"$type\": \"resqml20.NameValuePair\"\n            },\n            {\n                \"Name\": \"Base reference date\",\n                \"Value\": \"01.10.2019\",\n                \"$type\": \"resqml20.NameValuePair\"\n            },\n            {\n                \"Name\": \"Seismic content\",\n                \"Value\": \"Diff\",\n                \"$type\": \"resqml20.NameValuePair\"\n            },\n            {\n                \"Name\": \"Horizon content\",\n                \"Value\": \"maxn\",\n                \"$type\": \"resqml20.NameValuePair\"\n            },\n            {\n                \"Name\": \"pdgm/dx/resqml/creatorGroup\",\n                \"Value\": \"maap\",\n                \"$type\": \"resqml20.NameValuePair\"\n            },\n            {\n                \"Name\": \"pdgm/dx/resqml/project\",\n                \"Value\": \"a15f4e26-3c58-4b2f-98cb-2fe96ee64247\",\n                \"$type\": \"resqml20.NameValuePair\"\n            }\n        ],\n        \"RepresentedInterpretation\": {\n            \"ContentType\": \"application/x-resqml+xml;version=2.0;type=obj_HorizonInterpretation\",\n            \"Title\": \"AasgardFmTop-10s\",\n            \"UUID\": \"53e765da-21de-4c94-957c-8778b373a824\",\n            \"UuidAuthority\": \"pdgm\",\n            \"$type\": \"eml20.DataObjectReference\",\n            \"_data\": {\n                \"SchemaVersion\": \"2.0\",\n                \"Uuid\": \"53e765da-21de-4c94-957c-8778b373a824\",\n                \"Citation\": {\n                    \"Title\": \"AasgardFmTop-10s\",\n                    \"Originator\": \"maap\",\n                    \"Creation\": \"2023-11-08T10:13:00.000Z\",\n                    \"Format\": \"Aspen RMS\",\n                    \"$type\": \"eml20.Citation\"\n                },\n                \"ExtraMetadata\": [\n                    {\n                        \"Name\": \"pdgm/dx/resqml/creatorGroup\",\n                        \"Value\": \"maap\",\n                        \"$type\": \"resqml20.NameValuePair\"\n                    },\n                    {\n                        \"Name\": \"pdgm/dx/resqml/project\",\n                        \"Value\": \"9c89b2d6-2a0c-4ac7-9623-c22a7ee68a66\",\n                        \"$type\": \"resqml20.NameValuePair\"\n                    }\n                ],\n                \"Domain\": \"depth\",\n                \"InterpretedFeature\": {\n                    \"ContentType\": \"application/x-resqml+xml;version=2.0;type=obj_GeneticBoundaryFeature\",\n                    \"Title\": \"AasgardFmTop-10s\",\n                    \"UUID\": \"5ef6c519-1587-4215-be0e-61300574c530\",\n                    \"UuidAuthority\": \"pdgm\",\n                    \"$type\": \"eml20.DataObjectReference\",\n                    \"_data\": {\n                        \"SchemaVersion\": \"2.0\",\n                        \"Uuid\": \"5ef6c519-1587-4215-be0e-61300574c530\",\n                        \"Citation\": {\n                            \"Title\": \"AasgardFmTop-10s\",\n                            \"Originator\": \"maap\",\n                            \"Creation\": \"2023-11-08T10:13:00.000Z\",\n                            \"Format\": \"Aspen RMS\",\n                            \"$type\": \"eml20.Citation\"\n                        },\n                        \"ExtraMetadata\": [\n                            {\n                                \"Name\": \"pdgm/dx/resqml/creatorGroup\",\n                                \"Value\": \"maap\",\n                                \"$type\": \"resqml20.NameValuePair\"\n                            },\n                            {\n                                \"Name\": \"pdgm/dx/resqml/project\",\n                                \"Value\": \"9c89b2d6-2a0c-4ac7-9623-c22a7ee68a66\",\n                                \"$type\": \"resqml20.NameValuePair\"\n                            },\n                            {\n                                \"Name\": \"pdgm/dx/resqml/geologicProvince\",\n                                \"Value\": null,\n                                \"$type\": \"resqml20.NameValuePair\"\n                            }\n                        ],\n                        \"GeneticBoundaryKind\": \"horizon\",\n                        \"$type\": \"resqml20.obj_GeneticBoundaryFeature\"\n                    }\n                },\n                \"$type\": \"resqml20.obj_HorizonInterpretation\"\n            }\n        },\n        \"SurfaceRole\": \"map\",\n        \"Grid2dPatch\": {\n            \"PatchIndex\": 0,\n            \"FastestAxisCount\": 1266,\n            \"SlowestAxisCount\": 1134,\n            \"Geometry\": {\n                \"LocalCrs\": {\n                    \"ContentType\": \"application/x-resqml+xml;version=2.0;type=obj_LocalDepth3dCrs\",\n                    \"Title\": \"Local Depth CRS\",\n                    \"UUID\": \"184615c5-9730-4f5a-99a8-8891c8acdaf0\",\n                    \"UuidAuthority\": \"pdgm\",\n                    \"$type\": \"eml20.DataObjectReference\",\n                    \"_data\": {\n                        \"SchemaVersion\": \"2.0\",\n                        \"Uuid\": \"184615c5-9730-4f5a-99a8-8891c8acdaf0\",\n                        \"Citation\": {\n                            \"Title\": \"Local Depth CRS\",\n                            \"Originator\": \"maap\",\n                            \"Creation\": \"2023-11-08T10:13:00.000Z\",\n                            \"Format\": \"Aspen RMS\",\n                            \"$type\": \"eml20.Citation\"\n                        },\n                        \"ExtraMetadata\": [\n                            {\n                                \"Name\": \"pdgm/dx/resqml/creatorGroup\",\n                                \"Value\": \"maap\",\n                                \"$type\": \"resqml20.NameValuePair\"\n                            },\n                            {\n                                \"Name\": \"pdgm/dx/resqml/project\",\n                                \"Value\": \"9c89b2d6-2a0c-4ac7-9623-c22a7ee68a66\",\n                                \"$type\": \"resqml20.NameValuePair\"\n                            },\n                            {\n                                \"Name\": \"pdgm/dx/projectedCrsWkt\",\n                                \"Value\": \"PROJCS[\\\"UTM Zone 31, Northern Hemisphere\\\",\\n    GEOGCS[\\\"OW_European_Datum_1950\\\",\\n        DATUM[\\\"OW_European_Datum_1950\\\",\\n            SPHEROID[\\\"Spheroid\\\",6378388,297.0000000000014],\\n            TOWGS84[-87,-98,-121,0,0,0,0]],\\n        PRIMEM[\\\"Greenwich\\\",0],\\n        UNIT[\\\"degree\\\",0.0174532925199433]],\\n    PROJECTION[\\\"Transverse_Mercator\\\"],\\n    PARAMETER[\\\"latitude_of_origin\\\",0],\\n    PARAMETER[\\\"central_meridian\\\",3],\\n    PARAMETER[\\\"scale_factor\\\",0.9996],\\n    PARAMETER[\\\"false_easting\\\",500000],\\n    PARAMETER[\\\"false_northing\\\",0],\\n    UNIT[\\\"Meter\\\",1]]\",\n                                \"$type\": \"resqml20.NameValuePair\"\n                            }\n                        ],\n                        \"YOffset\": 0,\n                        \"ZOffset\": 0,\n                        \"ArealRotation\": {\n                            \"Uom\": \"dega\",\n                            \"_\": 0,\n                            \"$type\": \"eml20.PlaneAngleMeasure\"\n                        },\n                        \"ProjectedAxisOrder\": \"easting northing\",\n                        \"ProjectedUom\": \"m\",\n                        \"VerticalUom\": \"m\",\n                        \"XOffset\": 0,\n                        \"ZIncreasingDownward\": true,\n                        \"VerticalCrs\": {\n                            \"Unknown\": \"unknown\",\n                            \"$type\": \"eml20.VerticalUnknownCrs\"\n                        },\n                        \"ProjectedCrs\": {\n                            \"Unknown\": \"WKT\",\n                            \"$type\": \"eml20.ProjectedUnknownCrs\"\n                        },\n                        \"$type\": \"resqml20.obj_LocalDepth3dCrs\"\n                    }\n                },\n                \"Points\": {\n                    \"SupportingGeometry\": {\n                        \"Origin\": {\n                            \"Coordinate1\": 471881,\n                            \"Coordinate2\": 6514321,\n                            \"Coordinate3\": 0,\n                            \"$type\": \"resqml20.Point3d\"\n                        },\n                        \"Offset\": [\n                            {\n                                \"Offset\": {\n                                    \"Coordinate1\": 0.8837655726142573,\n                                    \"Coordinate2\": 0.46792992281087753,\n                                    \"Coordinate3\": 0,\n                                    \"$type\": \"resqml20.Point3d\"\n                                },\n                                \"Spacing\": {\n                                    \"Value\": 12.5,\n                                    \"Count\": 1134,\n                                    \"$type\": \"resqml20.DoubleConstantArray\"\n                                },\n                                \"$type\": \"resqml20.Point3dOffset\"\n                            },\n                            {\n                                \"Offset\": {\n                                    \"Coordinate1\": -0.46792992281087753,\n                                    \"Coordinate2\": 0.8837655726142573,\n                                    \"Coordinate3\": 0,\n                                    \"$type\": \"resqml20.Point3d\"\n                                },\n                                \"Spacing\": {\n                                    \"Value\": 12.5,\n                                    \"Count\": 1266,\n                                    \"$type\": \"resqml20.DoubleConstantArray\"\n                                },\n                                \"$type\": \"resqml20.Point3dOffset\"\n                            }\n                        ],\n                        \"$type\": \"resqml20.Point3dLatticeArray\"\n                    },\n                    \"ZValues\": {\n                        \"Values\": {\n                            \"PathInHdfFile\": \"/RESQML/11eab5c2-d65f-48f7-815c-60400bebc312/points_patch0\",\n                            \"HdfProxy\": {\n                                \"ContentType\": \"application/x-eml+xml;version=2.0;type=obj_EpcExternalPartReference\",\n                                \"Title\": \"/private/maap/tmp/js4d/js4d3surf.h5\",\n                                \"UUID\": \"5e9d1473-d36a-492e-a7b1-a9cb09b37bca\",\n                                \"UuidAuthority\": \"pdgm\",\n                                \"VersionString\": \"2023-11-15T11:41:47Z\",\n                                \"$type\": \"eml20.DataObjectReference\"\n                            },\n                            \"$type\": \"eml20.Hdf5Dataset\"\n                        },\n                        \"$type\": \"resqml20.DoubleHdf5Array\"\n                    },\n                    \"$type\": \"resqml20.Point3dZValueArray\"\n                },\n                \"$type\": \"resqml20.PointGeometry\"\n            },\n            \"$type\": \"resqml20.Grid2dPatch\"\n        },\n        \"$type\": \"resqml20.obj_Grid2dRepresentation\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "6. Get Description of All Arrays",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"response must be valid\", function () {\r",
+							"     pm.response.to.be.ok;\r",
+							"     pm.response.to.be.withBody;\r",
+							"     pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"status code is 200\", function () {\r",
+							"     pm.expect(pm.response.code).to.eql(200);\r",
+							"});\r",
+							"\r",
+							"pm.test('Data object content is available', function () {\r",
+							"    pm.expect(Object.keys(pm.response.json()).length).to.eql(1);\r",
+							"    var path = pm.response.json()[0].uid.pathInResource;\r",
+							"    console.log(path);\r",
+							"    var pathEscaped = path.toString().replace(/\\//g,'%2F');\r",
+							"    pm.collectionVariables.set(\"PATH_IN_RESOURCE\", pathEscaped);\r",
+							"});\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{access_token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{RESERVOIR_DDMS_HOST}}/dataspaces/{{DATASPACE_ID}}/resources/{{DATA_OBJECT_TYPE}}/{{DATA_OBJECT_TYPE_GUID}}/arrays",
+					"host": [
+						"{{RESERVOIR_DDMS_HOST}}"
+					],
+					"path": [
+						"dataspaces",
+						"{{DATASPACE_ID}}",
+						"resources",
+						"{{DATA_OBJECT_TYPE}}",
+						"{{DATA_OBJECT_TYPE_GUID}}",
+						"arrays"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "6. Get Description of All Arrays",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							},
+							{
+								"key": "data-partition-id",
+								"value": "{{data-partition-id}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{RESERVOIR_DDMS_HOST}}/dataspaces/{{DATASPACE_ID}}/resources/{{DATA_OBJECT_TYPE}}/{{DATA_OBJECT_TYPE_GUID}}/arrays",
+							"host": [
+								"{{RESERVOIR_DDMS_HOST}}"
+							],
+							"path": [
+								"dataspaces",
+								"{{DATASPACE_ID}}",
+								"resources",
+								"{{DATA_OBJECT_TYPE}}",
+								"{{DATA_OBJECT_TYPE_GUID}}",
+								"arrays"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "383"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"17f-XUdvaWafpKTArGo8indU7t6b4TQ\""
+						},
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Resource-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Origin-Agent-Cluster",
+							"value": "?1"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 11 Mar 2024 12:01:02 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"uid\": {\n            \"uri\": \"eml:///dataspace('demo/jos')/eml20.obj_EpcExternalPartReference(fbd05123-17c3-44bb-8a69-bdc21b8ae26a)\",\n            \"pathInResource\": \"/RESQML/26773ea0-1157-4ea9-bd87-a6843359323c/points_patch0\"\n        },\n        \"dimensions\": [\n            2110,\n            1496\n        ],\n        \"arrayType\": \"Int8Array\",\n        \"preferredSubarrayDimensions\": [],\n        \"storeLastWrite\": \"1970-01-01T00:00:00.000Z\",\n        \"storeCreated\": \"1970-01-01T00:00:00.000Z\",\n        \"customData\": {}\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "7. Get Array Content",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"response must be valid\", function () {\r",
+							"     pm.response.to.be.ok;\r",
+							"     pm.response.to.be.withBody;\r",
+							"     pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"status code is 200\", function () {\r",
+							"     pm.expect(pm.response.code).to.eql(200);\r",
+							"});\r",
+							"\r",
+							"pm.test('Array content is available', function () {\r",
+							"    pm.expect(pm.response.json()).is.not.empty;\r",
+							"    pm.expect(Object.keys(pm.response.json()).length).to.be.greaterThan(0);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Data value is presented\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.data.data).to.exist;\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{access_token}}",
+						"type": "text"
+					},
+					{
+						"key": "data-partition-id",
+						"value": "{{data-partition-id}}",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "{{RESERVOIR_DDMS_HOST}}/dataspaces/{{DATASPACE_ID}}/resources/{{DATA_OBJECT_TYPE}}/{{DATA_OBJECT_TYPE_GUID}}/arrays/{{PATH_IN_RESOURCE}}?starts=10&starts=2&counts=6&counts=1",
+					"host": [
+						"{{RESERVOIR_DDMS_HOST}}"
+					],
+					"path": [
+						"dataspaces",
+						"{{DATASPACE_ID}}",
+						"resources",
+						"{{DATA_OBJECT_TYPE}}",
+						"{{DATA_OBJECT_TYPE_GUID}}",
+						"arrays",
+						"{{PATH_IN_RESOURCE}}"
+					],
+					"query": [
+						{
+							"key": "starts",
+							"value": "10"
+						},
+						{
+							"key": "starts",
+							"value": "2"
+						},
+						{
+							"key": "counts",
+							"value": "6"
+						},
+						{
+							"key": "counts",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "7. Get Array Content",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							},
+							{
+								"key": "data-partition-id",
+								"value": "{{data-partition-id}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{RESERVOIR_DDMS_HOST}}/dataspaces/{{DATASPACE_ID}}/resources/{{DATA_OBJECT_TYPE}}/{{DATA_OBJECT_TYPE_GUID}}/arrays/{{PATH_IN_RESOURCE}}?starts=10&starts=2&counts=6&counts=1",
+							"host": [
+								"{{RESERVOIR_DDMS_HOST}}"
+							],
+							"path": [
+								"dataspaces",
+								"{{DATASPACE_ID}}",
+								"resources",
+								"{{DATA_OBJECT_TYPE}}",
+								"{{DATA_OBJECT_TYPE_GUID}}",
+								"arrays",
+								"{{PATH_IN_RESOURCE}}"
+							],
+							"query": [
+								{
+									"key": "starts",
+									"value": "10"
+								},
+								{
+									"key": "starts",
+									"value": "2"
+								},
+								{
+									"key": "counts",
+									"value": "6"
+								},
+								{
+									"key": "counts",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "354"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"162-iXgtijLiad0Zgo800Ya8b5tM7+M\""
+						},
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Resource-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Origin-Agent-Cluster",
+							"value": "?1"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 11 Mar 2024 12:02:28 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"uid\": {\n        \"uri\": \"eml:///dataspace('demo/jos')/eml20.obj_EpcExternalPartReference(fbd05123-17c3-44bb-8a69-bdc21b8ae26a)\",\n        \"pathInResource\": \"/RESQML/26773ea0-1157-4ea9-bd87-a6843359323c/points_patch0\"\n    },\n    \"data\": {\n        \"data\": [\n            0.04272200167179108,\n            0.04233599826693535,\n            0.04193799942731857,\n            0.041510000824928284,\n            0.04110899940133095,\n            0.0407399982213974\n        ],\n        \"dimensions\": [\n            6,\n            1\n        ]\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "8. Get Array Metadata",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"response must be valid\", function () {\r",
+							"     pm.response.to.be.ok;\r",
+							"     pm.response.to.be.withBody;\r",
+							"     pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"status code is 200\", function () {\r",
+							"     pm.expect(pm.response.code).to.eql(200);\r",
+							"});\r",
+							"\r",
+							"pm.test('Array metadata is available', function () {\r",
+							"    pm.expect(pm.response.json()).is.not.empty;\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{access_token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{RESERVOIR_DDMS_HOST}}/dataspaces/{{DATASPACE_ID}}/resources/{{DATA_OBJECT_TYPE}}/{{DATA_OBJECT_TYPE_GUID}}/arrays/{{PATH_IN_RESOURCE}}/metadata",
+					"host": [
+						"{{RESERVOIR_DDMS_HOST}}"
+					],
+					"path": [
+						"dataspaces",
+						"{{DATASPACE_ID}}",
+						"resources",
+						"{{DATA_OBJECT_TYPE}}",
+						"{{DATA_OBJECT_TYPE_GUID}}",
+						"arrays",
+						"{{PATH_IN_RESOURCE}}",
+						"metadata"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "8. Get Array Metadata",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							},
+							{
+								"key": "data-partition-id",
+								"value": "{{data-partition-id}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{RESERVOIR_DDMS_HOST}}/dataspaces/{{DATASPACE_ID}}/resources/{{DATA_OBJECT_TYPE}}/{{DATA_OBJECT_TYPE_GUID}}/arrays/{{PATH_IN_RESOURCE}}/metadata",
+							"host": [
+								"{{RESERVOIR_DDMS_HOST}}"
+							],
+							"path": [
+								"dataspaces",
+								"{{DATASPACE_ID}}",
+								"resources",
+								"{{DATA_OBJECT_TYPE}}",
+								"{{DATA_OBJECT_TYPE_GUID}}",
+								"arrays",
+								"{{PATH_IN_RESOURCE}}",
+								"metadata"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "401"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"191-4zYlVYNa6GZofIAp6iw2YeYmvpc\""
+						},
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Resource-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Origin-Agent-Cluster",
+							"value": "?1"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 11 Mar 2024 12:02:46 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"uid\": {\n        \"uri\": \"eml:///dataspace('demo/jos')/eml20.obj_EpcExternalPartReference(fbd05123-17c3-44bb-8a69-bdc21b8ae26a)\",\n        \"pathInResource\": \"/RESQML/26773ea0-1157-4ea9-bd87-a6843359323c/points_patch0\"\n    },\n    \"dimensions\": [\n        2110,\n        1496\n    ],\n    \"preferredSubarrayDimensions\": [],\n    \"logicalArrayType\": 0,\n    \"transportArrayType\": 4,\n    \"storeLastWrite\": \"1970-01-01T00:00:00.000Z\",\n    \"storeCreated\": \"1970-01-01T00:00:00.000Z\",\n    \"customData\": {}\n}"
+				}
+			]
+		},
+		{
+			"name": "9. Get Data Object Content Sources",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"response must be valid\", function () {\r",
+							"     pm.response.to.be.ok;\r",
+							"     pm.response.to.be.withBody;\r",
+							"     pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"status code is 200\", function () {\r",
+							"     pm.expect(pm.response.code).to.eql(200);\r",
+							"});\r",
+							"\r",
+							"pm.test('Number of sources: ' + pm.response.json().length, function () {\r",
+							"    pm.expect(Object.keys(pm.response.json()).length).to.be.greaterThan(0);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{access_token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{RESERVOIR_DDMS_HOST}}/dataspaces/{{DATASPACE_ID}}/resources/{{DATA_OBJECT_TYPE}}/{{DATA_OBJECT_TYPE_GUID}}/sources",
+					"host": [
+						"{{RESERVOIR_DDMS_HOST}}"
+					],
+					"path": [
+						"dataspaces",
+						"{{DATASPACE_ID}}",
+						"resources",
+						"{{DATA_OBJECT_TYPE}}",
+						"{{DATA_OBJECT_TYPE_GUID}}",
+						"sources"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "10. Get Data Object Content Targets",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"response must be valid\", function () {\r",
+							"     pm.response.to.be.ok;\r",
+							"     pm.response.to.be.withBody;\r",
+							"     pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"status code is 200\", function () {\r",
+							"     pm.expect(pm.response.code).to.eql(200);\r",
+							"});\r",
+							"\r",
+							"pm.test('Number of targets: ' + pm.response.json().length, function () {\r",
+							"    pm.expect(Object.keys(pm.response.json()).length).to.be.greaterThan(0);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{access_token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{RESERVOIR_DDMS_HOST}}/dataspaces/{{DATASPACE_ID}}/resources/{{DATA_OBJECT_TYPE}}/{{DATA_OBJECT_TYPE_GUID}}/targets",
+					"host": [
+						"{{RESERVOIR_DDMS_HOST}}"
+					],
+					"path": [
+						"dataspaces",
+						"{{DATASPACE_ID}}",
+						"resources",
+						"{{DATA_OBJECT_TYPE}}",
+						"{{DATA_OBJECT_TYPE_GUID}}",
+						"targets"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImZvbyIsInBhc3N3b3JkIjoiYmFyIn0.B2aynBmcpX9POj6ZkDU5nqjVaRf8nWsXTE0ozuq4xFg",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "DATASPACE_ID",
+			"value": "demo%2Fjos",
+			"type": "string"
+		},
+		{
+			"key": "DATA_OBJECT_TYPE",
+			"value": "resqml20.obj_Grid2dRepresentation",
+			"type": "string"
+		},
+		{
+			"key": "DATA_OBJECT_TYPE_GUID",
+			"value": "11eab5c2-d65f-48f7-815c-60400bebc312",
+			"type": "string"
+		},
+		{
+			"key": "PATH_IN_RESOURCE",
+			"value": "%2FRESQML%2F11eab5c2-d65f-48f7-815c-60400bebc312%2Fpoints_patch0",
+			"type": "string"
+		},
+		{
+			"key": "RESERVOIR_DDMS_HOST",
+			"value": "https://interop-rddms.azure-api.net/new/rest/Reservoir/v2/",
+			"type": "string"
+		},
+		{
+			"key": "Token_Fetch_URL",
+			"value": "https://interop-rddms.azure-api.net/new/rest/Reservoir/v2/token",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"value": "",
+			"type": "string"
+		}
+	]
+}
